@@ -475,6 +475,162 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:46px 16px cal
 </div>
 <div id="print"></div>
 
+<!-- Catalog data: schema, items and curated outfits. Each item is one line; "image" can point to a photo. -->
+<script type="application/json" id="idw-data">
+{"version":1,
+"schema":{"categories":{"tops":{"label":"Tops","zone":"rail1","slot":"top"},"shirts":{"label":"Shirts","zone":"rail1","slot":"top"},"knitwear":{"label":"Knitwear","zone":"rail1","slot":"top"},"blazers":{"label":"Blazers","zone":"rail1","slot":"layer"},"jackets":{"label":"Jackets","zone":"rail1","slot":"layer"},"coats":{"label":"Coats","zone":"rail1","slot":"layer"},"dresses":{"label":"Dresses","zone":"rail1","slot":"onepiece"},"jumpsuits":{"label":"Jumpsuits","zone":"rail1","slot":"onepiece"},"jeans":{"label":"Jeans","zone":"rail2","slot":"bottom"},"trousers":{"label":"Trousers","zone":"rail2","slot":"bottom"},"skirts":{"label":"Skirts","zone":"rail2","slot":"bottom"},"shorts":{"label":"Shorts","zone":"rail2","slot":"bottom"},"shoes":{"label":"Shoes","zone":"shelf","slot":"shoes"},"bags":{"label":"Bags","zone":"drawer","slot":"bag"},"accessories":{"label":"Accessories","zone":"drawer","slot":"accessory"}},"slots":["top","bottom","onepiece","layer","shoes","bag","accessory"],"colors":{"black":{"name":"Black","hex":"#2a2929","accent":false},"white":{"name":"White","hex":"#f7f5f0","accent":false},"ivory":{"name":"Ivory","hex":"#f4ecdc","accent":false},"cream":{"name":"Cream","hex":"#efe6d2","accent":false},"beige":{"name":"Beige","hex":"#d9c4a5","accent":false},"camel":{"name":"Camel","hex":"#b98a57","accent":false},"tan":{"name":"Tan","hex":"#c49a6c","accent":false},"brown":{"name":"Brown","hex":"#7a5235","accent":false},"grey":{"name":"Grey","hex":"#a7a5a0","accent":false},"charcoal":{"name":"Charcoal","hex":"#4a4a4a","accent":false},"navy":{"name":"Navy","hex":"#2f3a55","accent":false},"denim":{"name":"Denim","hex":"#5f7c9e","accent":false},"light-blue":{"name":"Light blue","hex":"#bcd1e6","accent":false},"khaki":{"name":"Khaki","hex":"#b7a88a","accent":false},"gold":{"name":"Gold","hex":"#c9a35a","accent":false},"champagne":{"name":"Champagne","hex":"#e6d3b3","accent":false},"pink":{"name":"Pink","hex":"#e9bdb7","accent":true},"lilac":{"name":"Lilac","hex":"#c9b6f2","accent":true},"red":{"name":"Red","hex":"#b3122e","accent":true},"burgundy":{"name":"Burgundy","hex":"#6e2433","accent":true},"rust":{"name":"Rust","hex":"#b35f38","accent":true},"mustard":{"name":"Mustard","hex":"#e1a730","accent":true},"olive":{"name":"Olive","hex":"#6f6b45","accent":true},"sage":{"name":"Sage","hex":"#a8b69b","accent":true}},"patterns":["solid","stripe","pinstripe","plaid","check","gingham","polka","floral","argyle","print","lace","cable","tweed","quilted","eyelet","woven","tortoiseshell"],"boldPatterns":["argyle","check","floral","gingham","pinstripe","plaid","polka","print","stripe"],"fits":["fitted","regular","relaxed","oversized","cropped"],"seasons":["spring","summer","autumn","winter"],"occasions":["work","date","weekend","travel","dinner"],"aesthetics":{"coquette":{"label":"Coquette"},"romantic":{"label":"Romantic"},"feminine-chic":{"label":"Feminine Chic"},"casual":{"label":"Casual Everyday"},"streetwear":{"label":"Streetwear"},"preppy":{"label":"Preppy"},"old-money":{"label":"Old Money"},"y2k":{"label":"Y2K"},"dark-academia":{"label":"Dark Academia"},"vintage":{"label":"Vintage"},"boho":{"label":"Boho"},"sporty-chic":{"label":"Sporty Chic"},"minimalist":{"label":"Minimalist & Clean"},"elegant":{"label":"Elegant & Evening"}}},
+"items":[
+  {"id":"white-tshirt","name":"White T-shirt","category":"tops","slot":"top","subtype":"tee","color":"white","pattern":"solid","fit":"regular","formality":[1,2],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["casual","minimalist","streetwear","sporty-chic"],"art":{"kind":"tee","fill":"#f8f6f1"},"image":null,"compat":{"styles":["Casual","Oversized","Natural"]}},
+  {"id":"striped-tshirt","name":"Striped T-shirt","category":"tops","slot":"top","subtype":"tee","color":"navy","pattern":"stripe","fit":"regular","formality":[1,2],"warmth":1,"seasons":["spring","summer","autumn"],"aesthetics":["casual","preppy","feminine-chic"],"art":{"kind":"tee","fill":"#f6f2ea","stripe":"#2f3a55"},"image":null,"compat":{"styles":["Casual","Natural"]}},
+  {"id":"black-fitted-top","name":"Black Fitted Top","category":"tops","slot":"top","subtype":"tank","color":"black","pattern":"solid","fit":"fitted","formality":[1,3],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["minimalist","elegant","casual"],"art":{"kind":"tank","fill":"#2b2a2a"},"image":null,"compat":{"styles":["Elegant","Casual"]}},
+  {"id":"white-shirt","name":"White Shirt","category":"shirts","slot":"top","subtype":"shirt","color":"white","pattern":"solid","fit":"regular","formality":[1,3],"warmth":2,"seasons":["spring","summer","autumn","winter"],"aesthetics":["minimalist","old-money","elegant","preppy","feminine-chic"],"art":{"kind":"shirt","fill":"#fbfaf7"},"image":null,"compat":{"styles":["Elegant","Oversized","Natural"]}},
+  {"id":"light-blue-shirt","name":"Light Blue Shirt","category":"shirts","slot":"top","subtype":"shirt","color":"light-blue","pattern":"solid","fit":"relaxed","formality":[1,3],"warmth":2,"seasons":["spring","summer","autumn","winter"],"aesthetics":["preppy","old-money","casual"],"art":{"kind":"shirt","fill":"#bcd1e6"},"image":null,"compat":{"styles":["Casual","Oversized","Elegant"],"color":"lightblue"}},
+  {"id":"cream-knit-sweater","name":"Cream Knit Sweater","category":"knitwear","slot":"top","subtype":"sweater","color":"cream","pattern":"cable","fit":"relaxed","formality":[1,2],"warmth":3,"seasons":["autumn","winter"],"aesthetics":["old-money","casual","minimalist"],"art":{"kind":"knit","fill":"#efe5d0","cable":true},"image":null,"compat":{"styles":["Natural","Casual","Oversized"]}},
+  {"id":"grey-sweater","name":"Grey Sweater","category":"knitwear","slot":"top","subtype":"sweater","color":"grey","pattern":"solid","fit":"oversized","formality":[1,2],"warmth":3,"seasons":["autumn","winter"],"aesthetics":["casual","minimalist","streetwear"],"art":{"kind":"knit","fill":"#a9a7a2"},"image":null,"compat":{"styles":["Casual","Oversized"]}},
+  {"id":"burgundy-sweater","name":"Burgundy Sweater","category":"knitwear","slot":"top","subtype":"sweater","color":"burgundy","pattern":"solid","fit":"regular","formality":[1,3],"warmth":3,"seasons":["autumn","winter"],"aesthetics":["dark-academia","elegant","casual"],"art":{"kind":"knit","fill":"#6d2333"},"image":null,"compat":{"styles":["Elegant","Casual"]}},
+  {"id":"pink-knit","name":"Pink Knit","category":"knitwear","slot":"top","subtype":"sweater","color":"pink","pattern":"solid","fit":"regular","formality":[1,2],"warmth":2,"seasons":["spring","autumn","winter"],"aesthetics":["coquette","feminine-chic","casual"],"art":{"kind":"knit","fill":"#e9bdb7"},"image":null,"compat":{"styles":["Casual","Natural"]}},
+  {"id":"cream-cardigan","name":"Cream Cardigan","category":"knitwear","slot":"layer","subtype":"cardigan","color":"cream","pattern":"solid","fit":"relaxed","formality":[1,2],"warmth":2,"seasons":["spring","autumn"],"aesthetics":["romantic","casual","boho","minimalist"],"art":{"kind":"cardigan","fill":"#ece2cc"},"image":null,"compat":{"styles":["Natural","Casual"]}},
+  {"id":"beige-blazer","name":"Beige Blazer","category":"blazers","slot":"layer","subtype":"blazer","color":"beige","pattern":"solid","fit":"regular","formality":[2,3],"warmth":2,"seasons":["spring","autumn"],"aesthetics":["feminine-chic","old-money","minimalist","elegant"],"art":{"kind":"blazer","fill":"#d6c09e"},"image":null,"compat":{"styles":["Elegant","Natural","Oversized"]}},
+  {"id":"black-blazer","name":"Black Blazer","category":"blazers","slot":"layer","subtype":"blazer","color":"black","pattern":"solid","fit":"regular","formality":[2,3],"warmth":2,"seasons":["spring","autumn","winter"],"aesthetics":["elegant","minimalist","feminine-chic"],"art":{"kind":"blazer","fill":"#2c2b2b"},"image":null,"compat":{"styles":["Elegant","Oversized"]}},
+  {"id":"camel-coat","name":"Camel Coat","category":"coats","slot":"layer","subtype":"wrap-coat","color":"camel","pattern":"solid","fit":"relaxed","formality":[1,3],"warmth":3,"seasons":["autumn","winter"],"aesthetics":["old-money","minimalist","elegant","feminine-chic"],"art":{"kind":"coat","fill":"#b88752","belt":true},"image":null,"compat":{"styles":["Elegant","Natural"],"category":"blazers"}},
+  {"id":"navy-coat","name":"Navy Coat","category":"coats","slot":"layer","subtype":"double-breasted-coat","color":"navy","pattern":"solid","fit":"regular","formality":[1,3],"warmth":3,"seasons":["autumn","winter"],"aesthetics":["preppy","old-money","elegant"],"art":{"kind":"coat","fill":"#2e3955"},"image":null,"compat":{"styles":["Elegant","Casual"],"category":"blazers"}},
+  {"id":"little-black-dress","name":"Little Black Dress","category":"dresses","slot":"onepiece","subtype":"sheath-dress","color":"black","pattern":"solid","fit":"fitted","formality":[2,3],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["elegant","minimalist","feminine-chic"],"art":{"kind":"dress","fill":"#272626","variant":"lbd"},"image":null,"compat":{"styles":["Elegant"]}},
+  {"id":"burgundy-dress","name":"Burgundy Dress","category":"dresses","slot":"onepiece","subtype":"wrap-dress","color":"burgundy","pattern":"solid","fit":"regular","formality":[2,3],"warmth":2,"seasons":["autumn","winter"],"aesthetics":["elegant","romantic","dark-academia"],"art":{"kind":"dress","fill":"#6b2232","variant":"wrap"},"image":null,"compat":{"styles":["Elegant"]}},
+  {"id":"sage-midi-dress","name":"Sage Midi Dress","category":"dresses","slot":"onepiece","subtype":"slip-dress","color":"sage","pattern":"solid","fit":"relaxed","formality":[1,3],"warmth":1,"seasons":["spring","summer"],"aesthetics":["romantic","boho","minimalist"],"art":{"kind":"dress","fill":"#a9b79b","variant":"slip"},"image":null,"compat":{"styles":["Natural","Elegant"],"formality":[1,2]}},
+  {"id":"black-tailored-trousers","name":"Black Tailored Trousers","category":"trousers","slot":"bottom","subtype":"tailored-trousers","color":"black","pattern":"solid","fit":"regular","formality":[2,3],"warmth":2,"seasons":["spring","summer","autumn","winter"],"aesthetics":["elegant","minimalist","feminine-chic"],"art":{"kind":"trousers","fill":"#2b2a2a","variant":"tailored"},"image":null,"compat":{"styles":["Elegant"]}},
+  {"id":"beige-wide-trousers","name":"Beige Wide Trousers","category":"trousers","slot":"bottom","subtype":"wide-trousers","color":"beige","pattern":"solid","fit":"relaxed","formality":[1,3],"warmth":2,"seasons":["spring","summer","autumn"],"aesthetics":["old-money","minimalist","feminine-chic"],"art":{"kind":"trousers","fill":"#d8c4a4","variant":"wide"},"image":null,"compat":{"styles":["Natural","Elegant","Oversized"]}},
+  {"id":"olive-trousers","name":"Olive Trousers","category":"trousers","slot":"bottom","subtype":"relaxed-trousers","color":"olive","pattern":"solid","fit":"relaxed","formality":[1,2],"warmth":2,"seasons":["spring","autumn"],"aesthetics":["casual","streetwear","boho"],"art":{"kind":"trousers","fill":"#6e6a44","variant":"relaxed"},"image":null,"compat":{"styles":["Natural","Casual"]}},
+  {"id":"straight-jeans","name":"Straight Jeans","category":"jeans","slot":"bottom","subtype":"straight-jeans","color":"denim","pattern":"solid","fit":"regular","formality":[1,2],"warmth":2,"seasons":["spring","summer","autumn","winter"],"aesthetics":["casual","minimalist","feminine-chic"],"art":{"kind":"jeans","fill":"#50709a","variant":"straight"},"image":null,"compat":{"styles":["Casual","Elegant"]}},
+  {"id":"light-wide-leg-jeans","name":"Light Wide-Leg Jeans","category":"jeans","slot":"bottom","subtype":"wide-leg-jeans","color":"denim","pattern":"solid","fit":"relaxed","formality":[1,2],"warmth":2,"seasons":["spring","summer","autumn","winter"],"aesthetics":["casual","boho","minimalist"],"art":{"kind":"jeans","fill":"#a2b8cf","variant":"wide"},"image":null,"compat":{"styles":["Oversized","Casual","Natural"]}},
+  {"id":"mom-jeans","name":"Mom Jeans","category":"jeans","slot":"bottom","subtype":"mom-jeans","color":"denim","pattern":"solid","fit":"relaxed","formality":[1,1],"warmth":2,"seasons":["spring","summer","autumn","winter"],"aesthetics":["casual","y2k","streetwear"],"art":{"kind":"jeans","fill":"#7090b4","variant":"mom"},"image":null,"compat":{"styles":["Casual","Oversized"],"formality":[1,2]}},
+  {"id":"dark-flared-jeans","name":"Dark Flared Jeans","category":"jeans","slot":"bottom","subtype":"flared-jeans","color":"denim","pattern":"solid","fit":"regular","formality":[1,2],"warmth":2,"seasons":["spring","summer","autumn","winter"],"aesthetics":["feminine-chic","boho","casual"],"art":{"kind":"jeans","fill":"#2f4565","variant":"flared"},"image":null,"compat":{"styles":["Elegant","Casual"]}},
+  {"id":"baggy-jeans","name":"Baggy Jeans","category":"jeans","slot":"bottom","subtype":"baggy-jeans","color":"denim","pattern":"solid","fit":"oversized","formality":[1,1],"warmth":2,"seasons":["spring","summer","autumn","winter"],"aesthetics":["streetwear","y2k","casual"],"art":{"kind":"jeans","fill":"#7d98b8","variant":"baggy"},"image":null,"compat":{"styles":["Oversized","Casual"],"formality":[1,2]}},
+  {"id":"beige-midi-skirt","name":"Beige Midi Skirt","category":"skirts","slot":"bottom","subtype":"pleated-midi-skirt","color":"beige","pattern":"solid","fit":"regular","formality":[1,3],"warmth":1,"seasons":["spring","summer","autumn"],"aesthetics":["feminine-chic","old-money","romantic","coquette"],"art":{"kind":"skirt","fill":"#d9c5a6","variant":"pleated"},"image":null,"compat":{"styles":["Natural","Elegant"]}},
+  {"id":"black-midi-skirt","name":"Black Midi Skirt","category":"skirts","slot":"bottom","subtype":"slip-skirt","color":"black","pattern":"solid","fit":"regular","formality":[1,3],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["minimalist","elegant","dark-academia"],"art":{"kind":"skirt","fill":"#2a2929","variant":"satin"},"image":null,"compat":{"styles":["Elegant"]}},
+  {"id":"white-sneakers","name":"White Sneakers","category":"shoes","slot":"shoes","subtype":"sneakers","color":"white","pattern":"solid","fit":"regular","formality":[1,2],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["casual","minimalist","sporty-chic","streetwear"],"art":{"kind":"sneakers","fill":"#f7f6f2"},"image":null,"compat":{"styles":["Casual","Oversized","Natural"]}},
+  {"id":"black-loafers","name":"Black Loafers","category":"shoes","slot":"shoes","subtype":"loafers","color":"black","pattern":"solid","fit":"regular","formality":[1,3],"warmth":2,"seasons":["spring","summer","autumn","winter"],"aesthetics":["dark-academia","preppy","minimalist","old-money"],"art":{"kind":"loafers","fill":"#262525"},"image":null,"compat":{"styles":["Elegant","Oversized"]}},
+  {"id":"brown-ankle-boots","name":"Brown Ankle Boots","category":"shoes","slot":"shoes","subtype":"ankle-boots","color":"brown","pattern":"solid","fit":"regular","formality":[1,2],"warmth":3,"seasons":["autumn","winter"],"aesthetics":["boho","casual"],"art":{"kind":"boots","fill":"#76502f"},"image":null,"compat":{"styles":["Natural","Casual"]}},
+  {"id":"black-ankle-boots","name":"Black Ankle Boots","category":"shoes","slot":"shoes","subtype":"ankle-boots","color":"black","pattern":"solid","fit":"regular","formality":[1,3],"warmth":3,"seasons":["autumn","winter"],"aesthetics":["minimalist","elegant","streetwear","casual"],"art":{"kind":"boots","fill":"#272626"},"image":null,"compat":{"styles":["Elegant","Oversized","Casual"]}},
+  {"id":"black-heels","name":"Black Heels","category":"shoes","slot":"shoes","subtype":"pumps","color":"black","pattern":"solid","fit":"regular","formality":[2,3],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["elegant","feminine-chic","romantic"],"art":{"kind":"heels","fill":"#232222"},"image":null,"compat":{"styles":["Elegant"]}},
+  {"id":"beige-ballet-flats","name":"Beige Ballet Flats","category":"shoes","slot":"shoes","subtype":"ballet-flats","color":"beige","pattern":"solid","fit":"regular","formality":[1,3],"warmth":1,"seasons":["spring","summer","autumn"],"aesthetics":["feminine-chic","old-money","romantic"],"art":{"kind":"flats","fill":"#dcc7a8"},"image":null,"compat":{"styles":["Natural","Elegant"]}},
+  {"id":"black-shoulder-bag","name":"Black Shoulder Bag","category":"bags","slot":"bag","subtype":"shoulder-bag","color":"black","pattern":"solid","fit":"regular","formality":[2,3],"warmth":0,"seasons":["spring","summer","autumn","winter"],"aesthetics":["elegant","minimalist","feminine-chic"],"art":{"kind":"shoulder","fill":"#252424"},"image":null,"compat":{"styles":["Elegant"]}},
+  {"id":"tan-shoulder-bag","name":"Tan Shoulder Bag","category":"bags","slot":"bag","subtype":"shoulder-bag","color":"tan","pattern":"solid","fit":"regular","formality":[1,3],"warmth":0,"seasons":["spring","summer","autumn","winter"],"aesthetics":["boho","casual","romantic"],"art":{"kind":"shoulder","fill":"#b5834f"},"image":null,"compat":{"styles":["Natural","Casual"],"color":"camel"}},
+  {"id":"camel-tote","name":"Camel Tote","category":"bags","slot":"bag","subtype":"tote","color":"camel","pattern":"solid","fit":"regular","formality":[1,2],"warmth":0,"seasons":["spring","summer","autumn","winter"],"aesthetics":["old-money","casual","minimalist","preppy"],"art":{"kind":"tote","fill":"#c09363"},"image":null,"compat":{"styles":["Natural","Casual"]}},
+  {"id":"black-tote","name":"Black Tote","category":"bags","slot":"bag","subtype":"tote","color":"black","pattern":"solid","fit":"regular","formality":[1,2],"warmth":0,"seasons":["spring","summer","autumn","winter"],"aesthetics":["minimalist","casual","sporty-chic","streetwear","dark-academia"],"art":{"kind":"tote","fill":"#2a2929"},"image":null,"compat":{"styles":["Oversized","Elegant","Casual"]}},
+  {"id":"black-sunglasses","name":"Black Sunglasses","category":"accessories","slot":"accessory","subtype":"eyewear","color":"black","pattern":"solid","fit":"regular","formality":[1,2],"warmth":0,"seasons":["spring","summer"],"aesthetics":["casual","minimalist","streetwear","old-money"],"art":{"kind":"sunglasses","fill":"#1f1e1e"},"image":null,"compat":{"styles":["Casual","Oversized"]}},
+  {"id":"gold-hoops","name":"Gold Hoops","category":"accessories","slot":"accessory","subtype":"earrings","color":"gold","pattern":"solid","fit":"regular","formality":[1,3],"warmth":0,"seasons":["spring","summer","autumn","winter"],"aesthetics":["feminine-chic","boho","minimalist","casual","y2k"],"art":{"kind":"hoops","fill":"#c9a35a"},"image":null,"compat":{"styles":["Elegant","Natural"]}},
+  {"id":"burgundy-scarf","name":"Burgundy Scarf","category":"accessories","slot":"accessory","subtype":"scarf","color":"burgundy","pattern":"solid","fit":"regular","formality":[1,2],"warmth":3,"seasons":["autumn","winter"],"aesthetics":["dark-academia","casual"],"art":{"kind":"scarf","fill":"#6e2433"},"image":null,"compat":{"styles":["Casual","Natural"]}},
+  {"id":"brown-belt","name":"Brown Belt","category":"accessories","slot":"accessory","subtype":"belt","color":"brown","pattern":"solid","fit":"regular","formality":[1,2],"warmth":0,"seasons":["spring","summer","autumn","winter"],"aesthetics":["casual","boho","old-money"],"art":{"kind":"belt","fill":"#7a5235"},"image":null,"compat":{"styles":["Natural","Casual"]}}
+],
+"outfits":[]}
+</script>
+<script id="idw-validate">
+/* Inventory consistency check. Runs in the page and in tools/check-data.mjs.
+   validateInventory(data, {photos, drawable}) -> {errors, warnings, stats} */
+window.validateInventory = function (data, opts = {}) {
+  const errors = [], warnings = [];
+  const S = data.schema || {}, items = data.items || [], outfits = data.outfits || [];
+  const cats = S.categories || {}, colors = S.colors || {}, aes = S.aesthetics || {};
+  const inList = (list, v) => Array.isArray(list) && list.includes(v);
+  const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const BY = {}, names = {};
+
+  for (const it of items) {
+    const at = `item "${it.id}"`;
+    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(it.id || '')) errors.push(`${at}: id must be kebab-case`);
+    if (BY[it.id]) errors.push(`${at}: duplicate id`);
+    BY[it.id] = it;
+    const n = (it.name || '').toLowerCase();
+    if (!n) errors.push(`${at}: missing name`);
+    else if (names[n]) errors.push(`${at}: duplicate name "${it.name}" (also ${names[n]})`);
+    else names[n] = it.id;
+    if (n && slug(it.name) !== it.id && slug(it.name).replace('t-shirt', 'tshirt') !== it.id) warnings.push(`${at}: id does not match name "${it.name}"`);
+    if (!cats[it.category]) errors.push(`${at}: unknown category "${it.category}"`);
+    if (!inList(S.slots, it.slot)) errors.push(`${at}: unknown slot "${it.slot}"`);
+    if (!it.subtype) errors.push(`${at}: missing subtype`);
+    if (!colors[it.color]) errors.push(`${at}: unknown colour "${it.color}"`);
+    if (!inList(S.patterns, it.pattern)) errors.push(`${at}: unknown pattern "${it.pattern}"`);
+    if (!inList(S.fits, it.fit)) errors.push(`${at}: unknown fit "${it.fit}"`);
+    const f = it.formality;
+    if (!Array.isArray(f) || f.length !== 2 || !(1 <= f[0] && f[0] <= f[1] && f[1] <= 3)) errors.push(`${at}: formality must be [min,max] within 1–3`);
+    if (!(Number.isInteger(it.warmth) && it.warmth >= 0 && it.warmth <= 3)) errors.push(`${at}: warmth must be 0–3`);
+    if (!Array.isArray(it.seasons) || !it.seasons.length || it.seasons.some(s => !inList(S.seasons, s))) errors.push(`${at}: invalid seasons`);
+    if (!Array.isArray(it.aesthetics) || !it.aesthetics.length || it.aesthetics.some(a => !aes[a])) errors.push(`${at}: invalid aesthetics`);
+    if (!it.art || !/^#[0-9a-f]{6}$/i.test(it.art.fill || '')) errors.push(`${at}: art.fill must be a hex colour`);
+    if (opts.drawable && it.art && !opts.drawable.includes(it.art.kind)) errors.push(`${at}: no drawing for art.kind "${it.art && it.art.kind}"`);
+    if (it.image != null && (typeof it.image !== 'string' || !it.image)) errors.push(`${at}: image must be a path or null`);
+  }
+  for (const id of Object.keys(opts.photos || {})) if (!BY[id]) errors.push(`photo for unknown item "${id}"`);
+
+  // ---- outfits ----
+  const TOP_BARE = ['tee', 'baby-tee', 'tank', 'cami', 'corset', 'crop-top', 'halter', 'off-shoulder'];
+  const VEST_OK = ['shirt', 'polo', 'tee', 'long-sleeve', 'blouse', 'peter-pan-blouse'];
+  const COAT = ['wrap-coat', 'double-breasted-coat', 'trench', 'long-coat', 'teddy-coat'];
+  const SLOTS = ['top', 'bottom', 'onepiece', 'layer', 'shoes', 'bag'];
+  const ids = {}, onames = {}, combos = {}, bases = {};
+  for (const o of outfits) {
+    const at = `outfit "${o.name || o.id}"`, e = m => errors.push(`${at}: ${m}`);
+    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(o.id || '')) e('id must be kebab-case');
+    if (ids[o.id]) e('duplicate id'); ids[o.id] = 1;
+    if (onames[o.name]) e('duplicate name'); onames[o.name] = 1;
+    const it = o.items || {}, acc = o.accessories || [];
+    let missing = false;
+    for (const [k, v] of Object.entries(it)) {
+      if (!SLOTS.includes(k)) { e(`unknown slot "${k}"`); missing = true; continue; }
+      if (!BY[v]) { e(`missing item "${v}"`); missing = true; continue; }
+      if (BY[v].slot !== k) e(`"${v}" is a ${BY[v].slot}, used as ${k}`);
+    }
+    for (const a of acc) {
+      if (!BY[a]) { e(`missing accessory "${a}"`); missing = true; }
+      else if (BY[a].slot !== 'accessory') e(`"${a}" is not an accessory`);
+    }
+    if (missing) continue;
+    if (it.onepiece && (it.top || it.bottom)) e('one-piece combined with top/bottom');
+    if (!it.onepiece && !(it.top && it.bottom)) e('needs top + bottom or a one-piece');
+    if (!it.shoes || !it.bag) e('needs shoes and a bag');
+    if (acc.length > 3) e('more than 3 accessories');
+    const fam = {}; for (const a of acc) { const s = BY[a].subtype; if (fam[s]) e(`two accessories of type ${s}`); fam[s] = 1; }
+    const P = Object.values(it).concat(acc).map(x => BY[x]);
+    const lo = Math.max(...P.map(p => p.formality[0])), hi = Math.min(...P.map(p => p.formality[1]));
+    if (lo > hi) e(`formality clash (${lo} > ${hi})`);
+    let sea = S.seasons.slice(); for (const p of P) sea = sea.filter(s => p.seasons.includes(s));
+    if (!sea.length) e('no season shared by all pieces');
+    for (const s of o.seasons || []) if (!sea.includes(s)) e(`declared season "${s}" not supported by every piece`);
+    if (!(o.seasons || []).length) e('no seasons declared');
+    const accents = new Set(P.filter(p => colors[p.color] && colors[p.color].accent).map(p => p.color));
+    if (accents.size > 1) e(`more than one accent colour (${[...accents].join(', ')})`);
+    if (P.filter(p => inList(S.boldPatterns, p.pattern)).length > 1) e('more than one bold pattern');
+    const clothes = ['top', 'bottom', 'onepiece', 'layer'].filter(k => it[k]).map(k => BY[it[k]]);
+    if (clothes.filter(p => p.color === 'denim').length > 1) e('double denim');
+    const top = BY[it.top], bot = BY[it.bottom], lay = BY[it.layer], sh = BY[it.shoes];
+    if (lay && COAT.includes(lay.subtype) && top && TOP_BARE.includes(top.subtype)) e(`coat over a ${top.subtype}`);
+    if (lay && top && top.subtype === 'sweater' && !COAT.includes(lay.subtype) && lay.subtype !== 'puffer') e('only a coat can go over a bulky sweater');
+    if (lay && lay.subtype === 'sweater-vest' && !(top && VEST_OK.includes(top.subtype))) e('a sweater vest needs a shirt or tee underneath');
+    if (bot && bot.id === 'baggy-jeans' && sh && ['pumps', 'ballet-flats', 'strappy-heels'].includes(sh.subtype)) e('baggy jeans with heels or flats');
+    if (bot && ['joggers', 'flare-leggings', 'bike-shorts'].includes(bot.subtype) && sh && ['pumps', 'strappy-heels', 'slingbacks'].includes(sh.subtype)) e('athletic bottom with heels');
+    for (const a of acc.map(x => BY[x])) {
+      if (a.subtype === 'scarf' && !((top && ['sweater', 'turtleneck', 'hoodie', 'long-sleeve'].includes(top.subtype)) || (lay && COAT.includes(lay.subtype)))) e('scarf without a knit or a coat');
+      if (a.subtype === 'belt' && (!bot || (top && ['sweater', 'hoodie'].includes(top.subtype)))) e('belt needs a bottom and a non-bulky top');
+    }
+    if (!aes[o.aesthetic]) e(`unknown aesthetic "${o.aesthetic}"`);
+    for (const oc of o.occasions || []) if (!inList(S.occasions, oc)) e(`unknown occasion "${oc}"`);
+    if ((o.occasions || []).includes('dinner') && hi < 2) e('dinner outfit is casual only');
+    if ((o.occasions || []).includes('work') && !(lo <= 2 && 2 <= hi)) e('work outfit cannot be smart');
+    const cols = new Set(P.map(p => p.color));
+    for (const c of o.palette || []) if (!colors[c]) e(`unknown palette colour "${c}"`); else if (!cols.has(c)) e(`palette colour "${c}" is not in any piece`);
+    for (const c of new Set(clothes.map(p => p.color))) if (!(o.palette || []).includes(c)) e(`main colour "${c}" missing from palette`);
+    const tagged = P.filter(p => p.aesthetics.includes(o.aesthetic)).length;
+    if (tagged / P.length < 0.5) e(`only ${tagged}/${P.length} pieces carry the "${o.aesthetic}" aesthetic`);
+    const key = Object.values(it).concat(acc).sort().join('+');
+    if (combos[key]) e(`same pieces as "${combos[key]}"`); combos[key] = o.name;
+    const base = ['top', 'bottom', 'onepiece'].filter(k => it[k]).map(k => it[k]).sort().join('+');
+    if (bases[base]) e(`same base as "${bases[base]}"`); bases[base] = o.name;
+  }
+  const stats = { items: items.length, outfits: outfits.length, categories: Object.keys(cats).length, colors: Object.keys(colors).length, aesthetics: Object.keys(aes).length };
+  return { errors, warnings, stats };
+};
+</script>
+
 <script>
 (() => {
 'use strict';
@@ -482,6 +638,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:46px 16px cal
 /* =====================================================================
    PHOTOS — to replace a drawing with a real photo, add a line here:
    'item-id': 'images/capi/file-name.png'
+   (an item's "image" field in #idw-data works too; this list wins).
    If the file is missing, the drawing is shown instead.
    ===================================================================== */
 const PHOTOS = {
@@ -496,51 +653,19 @@ const RM = matchMedia('(prefers-reduced-motion: reduce)');
 const reduced = () => RM.matches;
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
-/* ---------------- data ---------------- */
-const I = (id, name, cat, color, fill, type, kind, f, w, styles, extra = {}) => ({id, name, cat, color, fill, type, kind, f, w, styles, ...extra});
-const ITEMS = [
-  I('white-tshirt','White T-shirt','tops','white','#f8f6f1','top','tee',[1,2],1,['Casual','Oversized','Natural']),
-  I('striped-tshirt','Striped T-shirt','tops','navy','#f6f2ea','top','tee',[1,2],1,['Casual','Natural'],{bold:'stripes',stripe:'#2f3a55'}),
-  I('black-fitted-top','Black Fitted Top','tops','black','#2b2a2a','top','tank',[1,3],1,['Elegant','Casual']),
-  I('white-shirt','White Shirt','shirts','white','#fbfaf7','top','shirt',[1,3],2,['Elegant','Oversized','Natural']),
-  I('light-blue-shirt','Light Blue Shirt','shirts','lightblue','#bcd1e6','top','shirt',[1,3],2,['Casual','Oversized','Elegant']),
-  I('cream-knit-sweater','Cream Knit Sweater','knitwear','cream','#efe5d0','top','knit',[1,2],3,['Natural','Casual','Oversized'],{cable:true}),
-  I('grey-sweater','Grey Sweater','knitwear','grey','#a9a7a2','top','knit',[1,2],3,['Casual','Oversized']),
-  I('burgundy-sweater','Burgundy Sweater','knitwear','burgundy','#6d2333','top','knit',[1,3],3,['Elegant','Casual'],{bold:'burgundy'}),
-  I('pink-knit','Pink Knit','knitwear','pink','#e9bdb7','top','knit',[1,2],2,['Casual','Natural'],{bold:'pink'}),
-  I('cream-cardigan','Cream Cardigan','knitwear','cream','#ece2cc','layer','cardigan',[1,2],2,['Natural','Casual']),
-  I('beige-blazer','Beige Blazer','blazers','beige','#d6c09e','layer','blazer',[2,3],2,['Elegant','Natural','Oversized']),
-  I('black-blazer','Black Blazer','blazers','black','#2c2b2b','layer','blazer',[2,3],2,['Elegant','Oversized']),
-  I('camel-coat','Camel Coat','blazers','camel','#b88752','layer','coat',[1,3],3,['Elegant','Natural'],{belt:true}),
-  I('navy-coat','Navy Coat','blazers','navy','#2e3955','layer','coat',[1,3],3,['Elegant','Casual']),
-  I('little-black-dress','Little Black Dress','dresses','black','#272626','dress','dress',[2,3],1,['Elegant'],{art:'lbd'}),
-  I('burgundy-dress','Burgundy Dress','dresses','burgundy','#6b2232','dress','dress',[2,3],2,['Elegant'],{bold:'burgundy',art:'wrap'}),
-  I('sage-midi-dress','Sage Midi Dress','dresses','sage','#a9b79b','dress','dress',[1,2],1,['Natural','Elegant'],{bold:'sage',art:'slip'}),
-  I('black-tailored-trousers','Black Tailored Trousers','trousers','black','#2b2a2a','bottom','trousers',[2,3],2,['Elegant'],{art:'tailored'}),
-  I('beige-wide-trousers','Beige Wide Trousers','trousers','beige','#d8c4a4','bottom','trousers',[1,3],2,['Natural','Elegant','Oversized'],{art:'wide'}),
-  I('olive-trousers','Olive Trousers','trousers','olive','#6e6a44','bottom','trousers',[1,2],2,['Natural','Casual'],{bold:'olive',art:'relaxed'}),
-  I('straight-jeans','Straight Jeans','jeans','denim','#50709a','bottom','jeans',[1,2],2,['Casual','Elegant'],{art:'straight'}),
-  I('light-wide-leg-jeans','Light Wide-Leg Jeans','jeans','denim','#a2b8cf','bottom','jeans',[1,2],2,['Oversized','Casual','Natural'],{art:'wide'}),
-  I('mom-jeans','Mom Jeans','jeans','denim','#7090b4','bottom','jeans',[1,2],2,['Casual','Oversized'],{art:'mom'}),
-  I('dark-flared-jeans','Dark Flared Jeans','jeans','denim','#2f4565','bottom','jeans',[1,2],2,['Elegant','Casual'],{art:'flared'}),
-  I('baggy-jeans','Baggy Jeans','jeans','denim','#7d98b8','bottom','jeans',[1,2],2,['Oversized','Casual'],{art:'baggy'}),
-  I('beige-midi-skirt','Beige Midi Skirt','skirts','beige','#d9c5a6','bottom','skirt',[1,3],1,['Natural','Elegant'],{art:'pleated'}),
-  I('black-midi-skirt','Black Midi Skirt','skirts','black','#2a2929','bottom','skirt',[1,3],1,['Elegant'],{art:'satin'}),
-  I('white-sneakers','White Sneakers','shoes','white','#f7f6f2','shoes','sneakers',[1,2],1,['Casual','Oversized','Natural']),
-  I('black-loafers','Black Loafers','shoes','black','#262525','shoes','loafers',[1,3],2,['Elegant','Oversized']),
-  I('brown-ankle-boots','Brown Ankle Boots','shoes','brown','#76502f','shoes','boots',[1,2],3,['Natural','Casual']),
-  I('black-ankle-boots','Black Ankle Boots','shoes','black','#272626','shoes','boots',[1,3],3,['Elegant','Oversized','Casual']),
-  I('black-heels','Black Heels','shoes','black','#232222','shoes','heels',[2,3],1,['Elegant']),
-  I('beige-ballet-flats','Beige Ballet Flats','shoes','beige','#dcc7a8','shoes','flats',[1,3],1,['Natural','Elegant']),
-  I('black-shoulder-bag','Black Shoulder Bag','bags','black','#252424','bag','shoulder',[2,3],0,['Elegant']),
-  I('tan-shoulder-bag','Tan Shoulder Bag','bags','camel','#b5834f','bag','shoulder',[1,3],0,['Natural','Casual']),
-  I('camel-tote','Camel Tote','bags','camel','#c09363','bag','tote',[1,2],0,['Natural','Casual']),
-  I('black-tote','Black Tote','bags','black','#2a2929','bag','tote',[1,2],0,['Oversized','Elegant','Casual']),
-  I('black-sunglasses','Black Sunglasses','accessories','black','#1f1e1e','accessory','sunglasses',[1,2],0,['Casual','Oversized']),
-  I('gold-hoops','Gold Hoops','accessories','gold','#c9a35a','accessory','hoops',[1,3],0,['Elegant','Natural']),
-  I('burgundy-scarf','Burgundy Scarf','accessories','burgundy','#6e2433','accessory','scarf',[1,2],3,['Casual','Natural'],{bold:'burgundy'}),
-  I('brown-belt','Brown Belt','accessories','brown','#7a5235','accessory','belt',[1,2],0,['Natural','Casual']),
-];
+/* ---------------- data ----------------
+   The catalog lives in the JSON block #idw-data. toItem() turns a catalog entry into the shape the
+   engine and interface use today; `compat` keeps today's values where the redesign changes them. */
+const DATA = JSON.parse(document.getElementById('idw-data').textContent);
+function toItem(d){
+  const c=d.compat||{},a=d.art,col=DATA.schema.colors[d.color];
+  const it={id:d.id,name:d.name,cat:c.category||d.category,color:c.color||d.color,fill:a.fill,type:d.slot==='onepiece'?'dress':d.slot,kind:a.kind,f:c.formality||d.formality,w:c.warmth??d.warmth,styles:c.styles||[]};
+  if(DATA.schema.boldPatterns.includes(d.pattern))it.bold=d.pattern;else if(col&&col.accent)it.bold=d.color;
+  if(a.variant)it.art=a.variant;if(a.stripe)it.stripe=a.stripe;if(a.belt)it.belt=true;if(a.cable)it.cable=true;
+  return it;
+}
+const ITEMS = DATA.items.map(toItem);
+const PHOTO_SRC = Object.assign(Object.fromEntries(DATA.items.filter(d=>d.image).map(d=>[d.id,d.image])), PHOTOS);
 const BY = Object.fromEntries(ITEMS.map(i => [i.id, i]));
 const T = id => BY[id];
 
@@ -706,7 +831,7 @@ const KIND_ART = {tee:'tee',tank:'tank',shirt:'shirt',knit:'knit',cardigan:'card
 const drawing = it => ART[KIND_ART[it.kind]](it);
 
 const PHOTO_OK = new Set();
-function art(id){const it=T(id);if(PHOTO_OK.has(id))return `<img src="${esc(PHOTOS[id])}" alt="" decoding="async">`;return drawing(it);}
+function art(id){const it=T(id);if(PHOTO_OK.has(id))return `<img src="${esc(PHOTO_SRC[id])}" alt="" decoding="async">`;return drawing(it);}
 function artTag(id,cls='art'){return `<span class="${cls}">${art(id)}</span>`;}
 
 const HANGER_TOP = `<svg class="hanger" viewBox="0 0 120 46" aria-hidden="true"><path d="M60 19V13c0-4 2.5-6.5 6.5-6.5S73 9 73 12.5" fill="none" stroke="#8f6e3c" stroke-width="2.6" stroke-linecap="round"/><path d="M60 19 12 39Q6 42 11 44H109Q114 42 108 39Z" fill="none" stroke="#b08a57" stroke-width="4.2" stroke-linejoin="round"/></svg>`;
@@ -1318,10 +1443,12 @@ function buildPrint(){
 
 /* ---------------- photos ---------------- */
 function loadPhotos(){
-  Object.entries(PHOTOS).forEach(([id,src])=>{if(!BY[id])return;const im=new Image();im.onload=()=>{PHOTO_OK.add(id);renderWardrobe(false);};im.src=src;});
+  Object.entries(PHOTO_SRC).forEach(([id,src])=>{if(!BY[id])return;const im=new Image();im.onload=()=>{PHOTO_OK.add(id);renderWardrobe(false);};im.src=src;});
 }
 
 /* ---------------- init ---------------- */
+const CHECK = window.validateInventory(DATA,{photos:PHOTO_SRC,drawable:Object.keys(KIND_ART)});
+if(CHECK.errors.length||CHECK.warnings.length){console.warn(`Inventory check: ${CHECK.errors.length} errors, ${CHECK.warnings.length} warnings`);[...CHECK.errors,...CHECK.warnings].forEach(m=>console.warn(' - '+m));}
 renderWardrobe(false);renderSwatches();renderToolGrid();loadPhotos();
 })();
 </script>
