@@ -179,7 +179,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:46px 16px cal
 .lib-nav{display:flex;gap:7px;overflow-x:auto;padding:18px max(16px,env(safe-area-inset-left)) 8px;scrollbar-width:none;position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:linear-gradient(var(--bg) 80%,rgba(247,245,241,0))}
 @media(min-width:1000px){.lib-nav{flex-wrap:wrap;justify-content:center}}
 .lib-nav::-webkit-scrollbar{display:none}
-.band{scroll-margin-top:64px;background:var(--t-bg);color:var(--t-ink);padding:34px 0 30px;margin-top:10px;content-visibility:auto;contain-intrinsic-size:auto 1100px}
+.band{scroll-margin-top:64px;background:var(--t-bg);color:var(--t-ink);padding:34px 0 30px;margin-top:10px}
 .band-head{display:grid;gap:10px;margin-bottom:18px}
 @media(min-width:820px){.band-head{grid-template-columns:1.2fr 1fr;align-items:end;gap:30px}}
 .aes-kick{font:500 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--t-accent)}
@@ -444,11 +444,11 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:46px 16px cal
   .pp:last-child{break-after:auto;page-break-after:auto}
   .pp h1{font-size:22pt;text-align:center;letter-spacing:.14em;margin:0 0 1.5mm}
   .pp .pk2{text-align:center;font-family:var(--sans);letter-spacing:.3em;font-size:7pt;color:var(--gold);text-transform:uppercase}
-  .pp .sub{text-align:center;color:var(--muted);font-size:8.5pt;margin:0 0 5mm}
-  .p30{display:grid;grid-template-columns:repeat(6,1fr);gap:2.6mm}
+  .pp .sub{text-align:center;color:var(--muted);font-size:8.5pt;margin:0 0 4mm}
+  .p30{display:grid;grid-template-columns:repeat(6,1fr);gap:1.6mm 2.4mm}
   .p30 .flatlay{border-radius:2mm}
   .p30 .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:1mm;font-family:var(--serif);font-weight:600;font-size:8.5pt}
-  .p30 .nm{font-size:6.5pt;color:var(--muted);margin-top:.6mm;line-height:1.2;height:2.4em;overflow:hidden}
+  .p30 .nm{font-size:6.5pt;color:var(--muted);margin-top:.4mm;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .box{display:inline-block;width:3.3mm;height:3.3mm;border:.3mm solid var(--ink);border-radius:.6mm;vertical-align:-.6mm;margin-right:1.8mm;flex:0 0 auto}
   .pcols{columns:3;column-gap:7mm}
   .pcols section{break-inside:avoid;margin-bottom:3.2mm}
@@ -2056,7 +2056,7 @@ function fillBand(a){
   const keys = ITEMS.filter(i => i.aesthetics[0] === a || (i.aesthetics.includes(a) && CURATED.some(c => c.aes === a && c.p.includes(i.id)))).slice(0, 12);
   el.innerHTML = `<div class="ogrid">${outs.map((o, i) => outfitCard(o, {style:`--i:${i}`})).join('')}</div><h4>Key pieces</h4><div class="key-pieces">${keys.map(x => `<button class="mini" data-open-item="${x.id}">${artTag(x.id)}<span>${esc(x.name)}</span></button>`).join('')}</div><div class="band-actions"><button class="btn t" data-gen="${a}">Style a new ${esc(AES[a].label)} look</button><button class="btn t ghost" data-tool="quiz">Take the style quiz</button></div><div class="gen-slot"></div>`;
 }
-function goToBand(a){ fillBand(a); const el = $('#style-' + a); if (el) el.scrollIntoView({behavior:reduced() ? 'auto' : 'smooth', block:'start'}); }
+function goToBand(a){ const i = AES_IDS.indexOf(a); AES_IDS.slice(0, i + 2).forEach(fillBand); const el = $('#style-' + a); if (el) el.scrollIntoView({behavior:reduced() ? 'auto' : 'smooth', block:'start'}); }
 function genInBand(a){ const o = generate({aes:a, curated:false, seed:(Math.random() * 1e9) | 0}, 1)[0]; const slot = $(`.band-body[data-band="${a}"] .gen-slot`); if (o && slot) slot.innerHTML = outfitCard(o, {label:'Styled for you', cls:'appear'}); }
 
 /* ---------------- printables (4 A4 pages) ---------------- */
