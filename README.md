@@ -15,6 +15,7 @@ Open `index.html` in Safari, Chrome, Edge or Firefox, on a phone or a computer. 
 | `images/surfaces/` | The photographic flat-lay surface of each aesthetic (made by `tools/make_surfaces.py`) |
 | `tools/check-data.mjs` | `node tools/check-data.mjs` — checks every item, outfit and photo link; exits with an error if something is wrong |
 | `tools/prepare_photos.py` | `python3 tools/prepare_photos.py` — cuts out, crops and optimizes uploaded photos and links them in `index.html` |
+| `tools/generate_photos.py` | Generates the missing item photos through the Gemini API (key read from `GEMINI_API_KEY` in the environment, never stored in the project) into `images/upload/` |
 | `tools/photo_prompts.py` | Rewrites `docs/photo-prompts.md` for the items that still have no photo |
 | `docs/photo-prompts.md` | Ready-made prompts: 4-item sheets (fast) or one item per image (best detail) |
 | `docs/photo-sheets.json` | Which item sits in which quarter of each `sheet-NN` image |
