@@ -18,7 +18,7 @@
   --wood:repeating-linear-gradient(90deg,rgba(150,110,60,.07) 0 2px,transparent 2px 9px),repeating-linear-gradient(90deg,rgba(255,255,255,.09) 0 1px,transparent 1px 23px),linear-gradient(90deg,#e7d0aa,#dcbf92 50%,#e5cda6);
   /* default (unthemed) card tokens */
   --t-bg:var(--card);--t-ink:var(--ink);--t-accent:var(--gold);--t-on-accent:#fff;--t-font:var(--serif);--t-weight:500;--t-style:normal;--t-case:none;--t-track:.02em;
-  --t-surface:repeating-linear-gradient(45deg,rgba(255,255,255,.12) 0 2px,transparent 2px 6px),#ebe3d5;--t-frame:inset 0 0 0 1px rgba(110,80,45,.08);--t-frame-radius:8px;
+  --t-surface:url(images/surfaces/old-money.webp) center/cover,#e6e1d2;--t-frame:inset 0 0 0 1px rgba(110,80,45,.08);--t-frame-radius:8px;
   --t-chip-bg:#f1ece4;--t-chip-ink:var(--ink);--t-chip-border:0;--t-chip-radius:999px;--t-radius:50%;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -244,6 +244,8 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:46px 16px cal
 .flatlay{position:relative;aspect-ratio:3/4;width:100%;max-width:100%;background:var(--t-surface);border-radius:var(--t-frame-radius);box-shadow:var(--t-frame);overflow:hidden}
 .fl-p{position:absolute;transform:rotate(var(--r,0deg))}
 .fl-p svg,.fl-p img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 4px 5px rgba(40,25,10,.22))}
+.fl-p img{filter:drop-shadow(0 1px 1px rgba(30,20,10,.22)) drop-shadow(3px 9px 12px rgba(30,20,10,.20))}
+[data-dark] .fl-p img{filter:drop-shadow(0 1px 1px rgba(0,0,0,.5)) drop-shadow(3px 10px 14px rgba(0,0,0,.55))}
 .flatlay.mini .fl-p svg,.flatlay.mini .fl-p img{filter:drop-shadow(0 2px 2px rgba(40,25,10,.2))}
 .flatlay.clear{background:none;box-shadow:none}
 .slot{position:absolute;border:1.5px dashed rgba(110,80,45,.28);border-radius:10px;display:grid;place-items:center;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(110,80,45,.55)}
@@ -397,39 +399,39 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:46px 16px cal
 
 /* ---------- aesthetic themes (tokens only) ---------- */
 [data-aes=coquette]{--t-bg:#fbeef2;--t-ink:#4a2530;--t-accent:#c4577a;--t-font:'Pinyon Script',cursive;--t-weight:400;--t-size:50px;--t-case:none;--t-track:0;
-  --t-surface:radial-gradient(circle at 20% 20%,rgba(255,255,255,.7),transparent 40%),radial-gradient(#f3c9d5 1.2px,transparent 1.4px) 0 0/14px 14px,linear-gradient(135deg,#f9dfe6,#fdf2f5);
+  --t-surface:url(images/surfaces/coquette.webp) center/cover,#f1dbe0;
   --t-chip-bg:#fff;--t-chip-ink:#a24365;--t-chip-border:1px solid #f0bfcd;--t-frame:inset 0 0 0 6px #fff,inset 0 0 0 7px #f0bfcd}
 [data-aes=romantic]{--t-bg:#f5eee8;--t-ink:#4b3a36;--t-accent:#9b6672;--t-font:'Cormorant Garamond',serif;--t-style:italic;--t-weight:500;--t-size:44px;--t-case:none;--t-track:.01em;
-  --t-surface:radial-gradient(120% 90% at 50% 40%,#fbf7f1,#ecdcd3);--t-chip-bg:#ead9d3;--t-chip-ink:#6e4752}
+  --t-surface:url(images/surfaces/romantic.webp) center/cover,#e4dad0;--t-chip-bg:#ead9d3;--t-chip-ink:#6e4752}
 [data-aes=feminine-chic]{--t-bg:#f8f6f2;--t-ink:#1f2a44;--t-accent:#b3122e;--t-font:'Playfair Display',serif;--t-style:italic;--t-weight:500;--t-size:40px;--t-case:none;--t-track:0;
-  --t-surface:linear-gradient(115deg,transparent 46%,rgba(150,150,160,.16) 47%,transparent 49%),linear-gradient(160deg,transparent 60%,rgba(150,150,160,.12) 61%,transparent 63%),#fbfbfa;
+  --t-surface:url(images/surfaces/feminine-chic.webp) center/cover,#eeeeed;
   --t-chip-bg:#1f2a44;--t-chip-ink:#fff;--t-chip-radius:2px;--t-radius:2px}
 [data-aes=casual]{--t-bg:#eef3f7;--t-ink:#213245;--t-accent:#3f6e9f;--t-font:'DM Sans',sans-serif;--t-weight:700;--t-size:38px;--t-case:none;--t-track:-.01em;
-  --t-surface:repeating-linear-gradient(90deg,#e8d6b8 0 46px,#e2cdab 46px 48px),#e8d6b8;--t-chip-bg:#fff;--t-chip-ink:#3f6e9f;--t-chip-border:1.5px dashed #9bb6d1}
+  --t-surface:url(images/surfaces/casual.webp) center/cover,#d6bc95;--t-chip-bg:#fff;--t-chip-ink:#3f6e9f;--t-chip-border:1.5px dashed #9bb6d1}
 [data-aes=streetwear]{--t-bg:#e7e6e2;--t-ink:#111;--t-accent:#ff5a1f;--t-on-accent:#111;--t-font:'Archivo Black',sans-serif;--t-weight:400;--t-case:uppercase;--t-size:34px;--t-track:.02em;
-  --t-surface:radial-gradient(rgba(0,0,0,.08) 1px,transparent 1.2px) 0 0/5px 5px,radial-gradient(rgba(255,255,255,.35) 1px,transparent 1.2px) 2px 3px/7px 7px,#c6c5c0;
+  --t-surface:url(images/surfaces/streetwear.webp) center/cover,#a7a5a1;
   --t-chip-bg:#111;--t-chip-ink:#fff;--t-chip-radius:0;--t-radius:0;--t-frame-radius:0}
 [data-aes=y2k]{--t-bg:#f2ebff;--t-ink:#2a1b4a;--t-accent:#e8399f;--t-font:'Syne',sans-serif;--t-weight:800;--t-size:38px;--t-case:none;--t-track:0;
-  --t-surface:linear-gradient(120deg,#ffd1f0,#d6c8ff 30%,#c6f1ff 55%,#fff0c9 80%,#ffd1f0);--t-chip-bg:linear-gradient(#fff,#e9e3f7);--t-chip-ink:#6b3fb8;--t-chip-border:1px solid #c9b6f2;--t-frame-radius:22px}
+  --t-surface:url(images/surfaces/y2k.webp) center/cover,#e9def5;--t-chip-bg:linear-gradient(#fff,#e9e3f7);--t-chip-ink:#6b3fb8;--t-chip-border:1px solid #c9b6f2;--t-frame-radius:22px}
 [data-aes=old-money]{--t-bg:#f3efe4;--t-ink:#1f3a2e;--t-accent:#9c7a45;--t-font:'EB Garamond',serif;--t-weight:500;--t-case:uppercase;--t-track:.14em;--t-size:32px;
-  --t-surface:repeating-linear-gradient(0deg,rgba(120,100,70,.05) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(120,100,70,.05) 0 1px,transparent 1px 3px),#f8f5ec;
+  --t-surface:url(images/surfaces/old-money.webp) center/cover,#e6e1d2;
   --t-chip-bg:transparent;--t-chip-ink:#1f3a2e;--t-chip-border:1px solid #b9a27a;--t-chip-radius:0;--t-radius:0;--t-frame:inset 0 0 0 8px #f8f5ec,inset 0 0 0 9px #b9a27a,inset 0 0 0 12px #f8f5ec,inset 0 0 0 13px #b9a27a}
 [data-aes=preppy]{--t-bg:#fbfaf6;--t-ink:#14254a;--t-accent:#1f6e46;--t-font:'Libre Baskerville',serif;--t-weight:700;--t-size:32px;--t-case:none;--t-track:0;
-  --t-surface:repeating-linear-gradient(90deg,rgba(80,120,190,.16) 0 2px,transparent 2px 9px),#f4f7fc;--t-chip-bg:#14254a;--t-chip-ink:#fff;--t-chip-radius:4px}
+  --t-surface:url(images/surfaces/preppy.webp) center/cover,#e5e7e9;--t-chip-bg:#14254a;--t-chip-ink:#fff;--t-chip-radius:4px}
 [data-aes=dark-academia]{--t-bg:#2b221d;--t-ink:#efe4cf;--t-accent:#c39a5a;--t-on-accent:#2b221d;--t-font:'IM Fell English',serif;--t-weight:400;--t-size:40px;--t-case:none;--t-track:0;
-  --t-surface:radial-gradient(120% 100% at 50% 30%,#e9dcc0,#c9b48e 75%,#a88f66);--t-chip-bg:#3b2f28;--t-chip-ink:#efe4cf;--t-chip-border:1px solid #6b5543;--t-frame:inset 0 0 0 3px #6b4a2f,inset 0 0 40px rgba(60,30,10,.45)}
+  --t-surface:url(images/surfaces/dark-academia.webp) center/cover,#cfbc98;--t-chip-bg:#3b2f28;--t-chip-ink:#efe4cf;--t-chip-border:1px solid #6b5543;--t-frame:inset 0 0 0 3px #6b4a2f,inset 0 0 40px rgba(60,30,10,.45)}
 [data-aes=vintage]{--t-bg:#fbf2df;--t-ink:#3d2a1e;--t-accent:#b8352a;--t-font:'DM Serif Display',serif;--t-weight:400;--t-size:40px;--t-case:none;--t-track:0;
-  --t-surface:repeating-linear-gradient(0deg,rgba(184,53,42,.14) 0 12px,transparent 12px 24px),repeating-linear-gradient(90deg,rgba(184,53,42,.14) 0 12px,transparent 12px 24px),#fff8ec;
+  --t-surface:url(images/surfaces/vintage.webp) center/cover,#d3b387;
   --t-chip-bg:#e1a730;--t-chip-ink:#3d2a1e;--t-chip-radius:6px}
 [data-aes=boho]{--t-bg:#f5eadd;--t-ink:#4a3426;--t-accent:#b35f38;--t-font:'Fraunces',serif;--t-style:italic;--t-weight:500;--t-size:40px;--t-case:none;--t-track:0;
-  --t-surface:repeating-linear-gradient(45deg,rgba(150,105,60,.16) 0 3px,transparent 3px 8px),repeating-linear-gradient(-45deg,rgba(150,105,60,.16) 0 3px,transparent 3px 8px),#ead9bd;
+  --t-surface:url(images/surfaces/boho.webp) center/cover,#bda175;
   --t-chip-bg:#7b7d4a;--t-chip-ink:#fff;--t-frame-radius:90px 90px 10px 10px}
 [data-aes=minimalist]{--t-bg:#ffffff;--t-ink:#141414;--t-accent:#141414;--t-font:'Manrope',sans-serif;--t-weight:300;--t-size:40px;--t-case:none;--t-track:-.01em;
-  --t-surface:#f3f3f1;--t-chip-bg:transparent;--t-chip-ink:#141414;--t-chip-border:1px solid #d6d6d2;--t-chip-radius:0;--t-radius:0;--t-frame-radius:0;--t-frame:none}
+  --t-surface:url(images/surfaces/minimalist.webp) center/cover,#e8e9e6;--t-chip-bg:transparent;--t-chip-ink:#141414;--t-chip-border:1px solid #d6d6d2;--t-chip-radius:0;--t-radius:0;--t-frame-radius:0;--t-frame:none}
 [data-aes=sporty-chic]{--t-bg:#f3f6fb;--t-ink:#0d1b3d;--t-accent:#1f4bd8;--t-font:'Barlow Condensed',sans-serif;--t-style:italic;--t-weight:700;--t-case:uppercase;--t-size:40px;--t-track:.01em;
-  --t-surface:linear-gradient(90deg,transparent 0 84%,rgba(31,75,216,.85) 84% 86.5%,transparent 86.5% 89%,rgba(210,58,58,.85) 89% 91.5%,transparent 91.5%),#fdfdfd;--t-chip-bg:#0d1b3d;--t-chip-ink:#fff;--t-chip-radius:6px}
+  --t-surface:url(images/surfaces/sporty-chic.webp) center/cover,#e9ebed;--t-chip-bg:#0d1b3d;--t-chip-ink:#fff;--t-chip-radius:6px}
 [data-aes=elegant]{--t-bg:#121110;--t-ink:#f2e8d3;--t-accent:#c9a35a;--t-on-accent:#121110;--t-font:'Bodoni Moda',serif;--t-weight:500;--t-size:38px;--t-case:none;--t-track:.02em;
-  --t-surface:radial-gradient(90% 80% at 50% 35%,#2c2622,#0c0b0a);--t-chip-bg:transparent;--t-chip-ink:#e6cf9a;--t-chip-border:1px solid #6e5a35;--t-frame:inset 0 0 0 1px #6e5a35}
+  --t-surface:url(images/surfaces/elegant.webp) center/cover,#211b1a;--t-chip-bg:transparent;--t-chip-ink:#e6cf9a;--t-chip-border:1px solid #6e5a35;--t-frame:inset 0 0 0 1px #6e5a35}
 [data-aes=dark-academia] .names button,[data-aes=elegant] .names button{text-decoration-color:rgba(255,255,255,.3)}
 
 /* ---------- print (4 pages) ---------- */
@@ -900,9 +902,9 @@ window.validateInventory = function (data, opts = {}) {
    If the file is missing, the drawing is shown instead.
    ===================================================================== */
 const PHOTOS = {
-  'white-tshirt': 'images/capi/white-tshirt.png',
-  'light-wide-leg-jeans': 'images/capi/light-wide-leg-jeans.png',
-  'camel-coat': 'images/capi/camel-coat.png',
+  'camel-coat': 'images/capi/camel-coat.webp',
+  'light-wide-leg-jeans': 'images/capi/light-wide-leg-jeans.webp',
+  'white-tshirt': 'images/capi/white-tshirt.webp',
 };
 
 const $ = (s, r = document) => r.querySelector(s);
