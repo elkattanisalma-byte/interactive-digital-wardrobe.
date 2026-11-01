@@ -43,7 +43,7 @@ def post(url, body, headers):
 def openai(p, a):
     r = post('https://api.openai.com/v1/images/generations',
              {'model': a.model or 'gpt-image-1.5', 'prompt': p, 'size': '1024x1024', 'quality': a.quality, 'n': 1},
-             {'Authorization': 'Bearer ' + os.environ['OPENAI_API_KEY']})
+             {'Authorization': 'Bearer ' + os.environ['OPENAI_API_KEY']} if os.environ.get('OPENAI_API_KEY') else {})  # no key: the network-secrets proxy adds it
     return base64.b64decode(r['data'][0]['b64_json'])
 
 
@@ -105,7 +105,7 @@ def main():
         for i in todo[:3]: print(f'\n{i["id"]}.png\n{prompt(i)}')
         return 0
     key = {'openai': 'OPENAI_API_KEY', 'gemini': 'GEMINI_API_KEY'}[a.provider]
-    if not os.environ.get(key): sys.exit(f'{key} is not set in the environment')
+    if not os.environ.get(key) and a.provider != 'openai': sys.exit(f'{key} is not set in the environment')
     UP.mkdir(parents=True, exist_ok=True); fails = []
     for n, i in enumerate(todo, 1):
         for attempt in range(3):
