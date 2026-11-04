@@ -243,6 +243,13 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:46px 16px cal
 /* ---------- flat lay & outfit cards ---------- */
 .flatlay{position:relative;aspect-ratio:3/4;width:100%;max-width:100%;background:var(--t-surface);border-radius:var(--t-frame-radius);box-shadow:var(--t-frame);overflow:hidden}
 .fl-p{position:absolute;transform:rotate(var(--r,0deg))}
+.vpick{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 8px}
+.vdot{width:34px;height:34px;border-radius:50%;background:var(--c);border:1px solid rgba(0,0,0,.18);box-shadow:inset 0 0 0 3px #fff;cursor:pointer;padding:0}
+.vdot.on{outline:2px solid var(--ink,#222);outline-offset:2px}
+.vdot[aria-pressed="true"]::after{content:'';display:block;width:8px;height:8px;margin:auto;border-radius:50%;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+.vmini{position:absolute;left:50%;bottom:4px;transform:translateX(-50%);display:flex;gap:3px;padding:3px 5px;border-radius:9px;background:rgba(255,255,255,.85);pointer-events:none}
+.vmini i{width:7px;height:7px;border-radius:50%;background:var(--c);box-shadow:0 0 0 .5px rgba(0,0,0,.3)}
+.vmini i.on{box-shadow:0 0 0 1.5px #2b2520}
 .fl-p svg,.fl-p img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 4px 5px rgba(40,25,10,.22))}
 .fl-p img{filter:drop-shadow(0 1px 1px rgba(30,20,10,.22)) drop-shadow(3px 9px 12px rgba(30,20,10,.20))}
 [data-dark] .fl-p img{filter:drop-shadow(0 1px 1px rgba(0,0,0,.5)) drop-shadow(3px 10px 14px rgba(0,0,0,.55))}
@@ -575,13 +582,29 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:46px 16px cal
 <!-- Catalog data: schema, items and curated outfits. Each item is one line; "image" can point to a photo. -->
 <script type="application/json" id="idw-data">
 {"version":2,
-"schema":{"categories":{"tops":{"label":"Tops","zone":"rail1","slot":"top"},"shirts":{"label":"Shirts","zone":"rail1","slot":"top"},"knitwear":{"label":"Knitwear","zone":"rail1","slot":"top"},"blazers":{"label":"Blazers","zone":"rail1","slot":"layer"},"jackets":{"label":"Jackets","zone":"rail1","slot":"layer"},"coats":{"label":"Coats","zone":"rail1","slot":"layer"},"dresses":{"label":"Dresses","zone":"rail1","slot":"onepiece"},"jumpsuits":{"label":"Jumpsuits","zone":"rail1","slot":"onepiece"},"jeans":{"label":"Jeans","zone":"rail2","slot":"bottom"},"trousers":{"label":"Trousers","zone":"rail2","slot":"bottom"},"skirts":{"label":"Skirts","zone":"rail2","slot":"bottom"},"shorts":{"label":"Shorts","zone":"rail2","slot":"bottom"},"shoes":{"label":"Shoes","zone":"shelf","slot":"shoes"},"bags":{"label":"Bags","zone":"drawer","slot":"bag"},"accessories":{"label":"Accessories","zone":"drawer","slot":"accessory"}},"slots":["top","bottom","onepiece","layer","shoes","bag","accessory"],"colors":{"black":{"name":"Black","hex":"#2a2929","accent":false,"works":["white","cream","beige","camel","grey","red","pink","gold"]},"white":{"name":"White","hex":"#f7f5f0","accent":false,"works":["black","navy","beige","camel","denim","sage","olive","red"]},"ivory":{"name":"Ivory","hex":"#f4ecdc","accent":false,"works":["pink","champagne","camel","black","navy","sage"]},"cream":{"name":"Cream","hex":"#efe6d2","accent":false,"works":["camel","brown","beige","denim","sage","olive","burgundy","black"]},"beige":{"name":"Beige","hex":"#d9c4a5","accent":false,"works":["white","cream","black","brown","navy","denim","sage","burgundy"]},"camel":{"name":"Camel","hex":"#b98a57","accent":false,"works":["cream","white","black","navy","denim","grey","burgundy","olive"]},"tan":{"name":"Tan","hex":"#c49a6c","accent":false,"works":["white","cream","denim","olive","rust","brown","black"]},"brown":{"name":"Brown","hex":"#7a5235","accent":false,"works":["cream","beige","camel","denim","olive","sage","white","mustard"]},"grey":{"name":"Grey","hex":"#a7a5a0","accent":false,"works":["black","white","navy","pink","burgundy","denim","camel"]},"charcoal":{"name":"Charcoal","hex":"#4a4a4a","accent":false,"works":["white","camel","burgundy","light-blue","pink","black"]},"navy":{"name":"Navy","hex":"#2f3a55","accent":false,"works":["white","cream","beige","camel","grey","denim","light-blue","red"]},"denim":{"name":"Denim","hex":"#5f7c9e","accent":false,"works":["white","cream","black","camel","grey","navy","burgundy","pink","olive"]},"light-blue":{"name":"Light blue","hex":"#bcd1e6","accent":false,"works":["white","navy","beige","camel","grey","black","khaki"]},"khaki":{"name":"Khaki","hex":"#b7a88a","accent":false,"works":["white","black","navy","light-blue","brown","grey"]},"gold":{"name":"Gold","hex":"#c9a35a","accent":false,"works":["black","cream","beige","burgundy","camel","red"]},"champagne":{"name":"Champagne","hex":"#e6d3b3","accent":false,"works":["black","ivory","beige","gold","navy"]},"pink":{"name":"Pink","hex":"#e9bdb7","accent":true,"works":["grey","cream","white","denim","burgundy","camel","black"]},"lilac":{"name":"Lilac","hex":"#c9b6f2","accent":true,"works":["white","grey","denim","cream","black"]},"red":{"name":"Red","hex":"#b3122e","accent":true,"works":["black","white","cream","navy","denim","camel"]},"burgundy":{"name":"Burgundy","hex":"#6e2433","accent":true,"works":["black","cream","camel","grey","denim","beige","pink"]},"rust":{"name":"Rust","hex":"#b35f38","accent":true,"works":["cream","white","tan","denim","olive","brown"]},"mustard":{"name":"Mustard","hex":"#e1a730","accent":true,"works":["navy","brown","cream","denim","white","black"]},"olive":{"name":"Olive","hex":"#6f6b45","accent":true,"works":["cream","white","camel","brown","black","denim","beige"]},"sage":{"name":"Sage","hex":"#a8b69b","accent":true,"works":["cream","white","beige","brown","camel","denim"]}},"patterns":["solid","stripe","pinstripe","plaid","check","gingham","polka","floral","argyle","print","lace","cable","tweed","quilted","eyelet","woven","tortoiseshell"],"boldPatterns":["argyle","check","floral","gingham","pinstripe","plaid","polka","print","stripe"],"fits":["fitted","regular","relaxed","oversized","cropped"],"seasons":["spring","summer","autumn","winter"],"occasions":["work","date","weekend","travel","dinner"],"aesthetics":{"coquette":{"label":"Coquette","mood":"Bows, lace and pearls, in soft pinks anchored by black.","description":"Sweet, feminine and a little playful. Ribbons, lace trims, pearls and Mary Janes, with soft pink balanced by crisp black so it never feels costume-like.","palette":["#f7d3dd","#e8a3b5","#fffaf3","#c4577a","#1f1a1c"],"keywords":"Bows · lace · pearls"},"romantic":{"label":"Romantic","mood":"Flowing fabrics, dusty rose and champagne, soft candlelight.","description":"Soft and dreamy. Ruffles, satin and slip dresses in warm, muted tones, with delicate jewellery and fluid shapes that move.","palette":["#fbf7f1","#e3c4c4","#b5838d","#e6d3b3","#9aa88f"],"keywords":"Ruffles · satin · soft light"},"feminine-chic":{"label":"Feminine Chic","mood":"Parisian polish: navy, cream, a red lip and a trench.","description":"Effortlessly put together. Breton stripes, trench coats, ballet flats and a quilted bag: classic pieces worn with a light, confident touch.","palette":["#1f2a44","#f3ece0","#d6c09e","#b3122e","#1b1b1b"],"keywords":"Trench · stripes · ballet flats"},"casual":{"label":"Casual Everyday","mood":"Denim, crisp tees, clean sneakers: easy, bright, lived-in.","description":"Comfortable pieces you reach for every day, styled so they still look intentional: great jeans, a fresh tee, a good tote and clean sneakers.","palette":["#ffffff","#4f7cac","#a2b8cf","#c09363","#f2c14e"],"keywords":"Denim · tees · sneakers"},"streetwear":{"label":"Streetwear","mood":"Oversized layers, cargo and combat boots on concrete.","description":"Relaxed volume with an edge. Hoodies, cargo pants, leather and puffer jackets, chunky boots and a cap, in black, grey and khaki.","palette":["#111111","#8f8f8a","#b7a88a","#556b2f","#ff5a1f"],"keywords":"Cargo · hoodies · combat boots"},"preppy":{"label":"Preppy","mood":"Pleats, polos, blazers and loafers, in campus colours.","description":"Neat and collegiate. Polo shirts, pleated skirts, navy blazers, argyle and loafers, with a satchel for the walk across campus.","palette":["#14254a","#ffffff","#1f6e46","#b22234","#8a5a35"],"keywords":"Pleats · polos · blazers"},"old-money":{"label":"Old Money","mood":"Quiet luxury: cream, navy, camel and a gold watch.","description":"Understated and refined. Linen, cable knits, tailored trousers, loafers and a gold watch, in a palette of cream, navy and camel that never shouts.","palette":["#f6f0e1","#c8a97e","#1f2f4a","#1f3a2e","#9c7a45"],"keywords":"Linen · loafers · cable knits"},"y2k":{"label":"Y2K","mood":"Low-rise flares, baby tees and tinted shades, all a little glossy.","description":"Playful early-2000s nostalgia. Baby tees, low-rise flares, minis, platform sneakers and tinted sunglasses, in candy colours with a glossy finish.","palette":["#ffb3df","#c9b6f2","#7ad7ff","#e8399f","#dfe3ea"],"keywords":"Baby tees · flares · platforms"},"dark-academia":{"label":"Dark Academia","mood":"Tweed, oxblood and old books by lamplight.","description":"Moody and scholarly. Turtlenecks, tweed blazers, plaid skirts, wool trousers and Mary Janes, in browns, black and oxblood.","palette":["#2b221d","#6b4a2f","#7a2a2a","#3f4a3a","#e9dcc0"],"keywords":"Tweed · plaid · turtlenecks"},"vintage":{"label":"Vintage","mood":"Gingham, cherry red, mustard and cat-eye sunglasses: a retro picnic.","description":"A love letter to the 50s to 70s. Gingham dresses, Peter Pan collars, sailor trousers, corduroy and cat-eye sunglasses, in cherry red and mustard.","palette":["#b8352a","#e1a730","#2f7f7a","#fff8ec","#3d2a1e"],"keywords":"Gingham · cat-eye · corduroy"},"boho":{"label":"Boho","mood":"Tiered skirts, suede and straw in sun-warmed earth tones.","description":"Free-spirited and earthy. Tiered maxi skirts, lace dresses, suede jackets, straw bags and sandals, in terracotta, sand and olive.","palette":["#b35f38","#e9d6b8","#7b7d4a","#d9a441","#fffaf0"],"keywords":"Suede · straw · tiered skirts"},"sporty-chic":{"label":"Sporty Chic","mood":"Track jackets, tennis whites and fresh sneakers, styled for brunch.","description":"Athletic pieces dressed up: tennis whites, track jackets, leggings and retro runners, worn with a smart coat or a tote.","palette":["#ffffff","#0d1b3d","#1f4bd8","#d23a3a","#a7a5a0"],"keywords":"Tennis whites · track jackets · runners"},"minimalist":{"label":"Minimalist & Clean","mood":"Few pieces, perfect proportions, a lot of white space.","description":"Calm and precise. Clean lines, neutral colours and a few excellent pieces, where the cut and the proportions do all the work.","palette":["#ffffff","#e8e6e1","#b9b6ae","#c8a97e","#141414"],"keywords":"Clean lines · neutrals · proportion"},"elegant":{"label":"Elegant & Evening","mood":"Satin, black tailoring and gold, made for the night.","description":"Polished for the evening. Satin slip dresses, black tailoring, strappy heels, a gold clutch and pearls: simple shapes in rich materials.","palette":["#0f0e0d","#6d1a2b","#b3122e","#c9a35a","#f2e8d3"],"keywords":"Satin · tailoring · gold"}}},
+"schema":{"categories":{"tops":{"label":"Tops","zone":"rail1","slot":"top"},"shirts":{"label":"Shirts","zone":"rail1","slot":"top"},"knitwear":{"label":"Knitwear","zone":"rail1","slot":"top"},"blazers":{"label":"Blazers","zone":"rail1","slot":"layer"},"jackets":{"label":"Jackets","zone":"rail1","slot":"layer"},"coats":{"label":"Coats","zone":"rail1","slot":"layer"},"dresses":{"label":"Dresses","zone":"rail1","slot":"onepiece"},"jumpsuits":{"label":"Jumpsuits","zone":"rail1","slot":"onepiece"},"jeans":{"label":"Jeans","zone":"rail2","slot":"bottom"},"trousers":{"label":"Trousers","zone":"rail2","slot":"bottom"},"skirts":{"label":"Skirts","zone":"rail2","slot":"bottom"},"shorts":{"label":"Shorts","zone":"rail2","slot":"bottom"},"shoes":{"label":"Shoes","zone":"shelf","slot":"shoes"},"bags":{"label":"Bags","zone":"drawer","slot":"bag"},"accessories":{"label":"Accessories","zone":"drawer","slot":"accessory"}},"slots":["top","bottom","onepiece","layer","shoes","bag","accessory"],"colors":{"black":{"name":"Black","hex":"#2a2929","accent":false,"works":["white","cream","beige","camel","grey","red","pink","gold"]},"white":{"name":"White","hex":"#f7f5f0","accent":false,"works":["black","navy","beige","camel","denim","sage","olive","red"]},"ivory":{"name":"Ivory","hex":"#f4ecdc","accent":false,"works":["pink","champagne","camel","black","navy","sage"]},"cream":{"name":"Cream","hex":"#efe6d2","accent":false,"works":["camel","brown","beige","denim","sage","olive","burgundy","black"]},"beige":{"name":"Beige","hex":"#d9c4a5","accent":false,"works":["white","cream","black","brown","navy","denim","sage","burgundy"]},"camel":{"name":"Camel","hex":"#b98a57","accent":false,"works":["cream","white","black","navy","denim","grey","burgundy","olive"]},"tan":{"name":"Tan","hex":"#c49a6c","accent":false,"works":["white","cream","denim","olive","rust","brown","black"]},"brown":{"name":"Brown","hex":"#7a5235","accent":false,"works":["cream","beige","camel","denim","olive","sage","white","mustard"]},"grey":{"name":"Grey","hex":"#a7a5a0","accent":false,"works":["black","white","navy","pink","burgundy","denim","camel"]},"charcoal":{"name":"Charcoal","hex":"#4a4a4a","accent":false,"works":["white","camel","burgundy","light-blue","pink","black"]},"navy":{"name":"Navy","hex":"#2f3a55","accent":false,"works":["white","cream","beige","camel","grey","denim","light-blue","red"]},"denim":{"name":"Denim","hex":"#5f7c9e","accent":false,"works":["white","cream","black","camel","grey","navy","burgundy","pink","olive"]},"light-blue":{"name":"Light blue","hex":"#bcd1e6","accent":false,"works":["white","navy","beige","camel","grey","black","khaki"]},"khaki":{"name":"Khaki","hex":"#b7a88a","accent":false,"works":["white","black","navy","light-blue","brown","grey"]},"gold":{"name":"Gold","hex":"#c9a35a","accent":false,"works":["black","cream","beige","burgundy","camel","red"]},"champagne":{"name":"Champagne","hex":"#e6d3b3","accent":false,"works":["black","ivory","beige","gold","navy"]},"pink":{"name":"Pink","hex":"#e9bdb7","accent":true,"works":["grey","cream","white","denim","burgundy","camel","black"]},"lilac":{"name":"Lilac","hex":"#c9b6f2","accent":true,"works":["white","grey","denim","cream","black"]},"red":{"name":"Red","hex":"#b3122e","accent":true,"works":["black","white","cream","navy","denim","camel"]},"burgundy":{"name":"Burgundy","hex":"#6e2433","accent":true,"works":["black","cream","camel","grey","denim","beige","pink"]},"rust":{"name":"Rust","hex":"#b35f38","accent":true,"works":["cream","white","tan","denim","olive","brown"]},"mustard":{"name":"Mustard","hex":"#e1a730","accent":true,"works":["navy","brown","cream","denim","white","black"]},"olive":{"name":"Olive","hex":"#6f6b45","accent":true,"works":["cream","white","camel","brown","black","denim","beige"]},"sage":{"name":"Sage","hex":"#a8b69b","accent":true,"works":["cream","white","beige","brown","camel","denim"]}},"patterns":["solid","stripe","pinstripe","plaid","check","gingham","polka","floral","argyle","print","lace","cable","tweed","quilted","eyelet","woven","tortoiseshell"],"boldPatterns":["argyle","check","floral","gingham","pinstripe","plaid","polka","print","stripe"],"fits":["fitted","regular","relaxed","oversized","cropped"],"seasons":["spring","summer","autumn","winter"],"occasions":["work","date","weekend","travel","dinner"],"aesthetics":{"coquette":{"label":"Coquette","mood":"Bows, lace and pearls, in soft pinks anchored by black.","description":"Sweet, feminine and a little playful. Ribbons, lace trims, pearls and Mary Janes, with soft pink balanced by crisp black so it never feels costume-like.","palette":["#f7d3dd","#e8a3b5","#fffaf3","#c4577a","#1f1a1c"],"keywords":"Bows · lace · pearls"},"romantic":{"label":"Romantic","mood":"Flowing fabrics, dusty rose and champagne, soft candlelight.","description":"Soft and dreamy. Ruffles, satin and slip dresses in warm, muted tones, with delicate jewellery and fluid shapes that move.","palette":["#fbf7f1","#e3c4c4","#b5838d","#e6d3b3","#9aa88f"],"keywords":"Ruffles · satin · soft light"},"feminine-chic":{"label":"Feminine Chic","mood":"Parisian polish: navy, cream, a red lip and a trench.","description":"Effortlessly put together. Breton stripes, trench coats, ballet flats and a quilted bag: classic pieces worn with a light, confident touch.","palette":["#1f2a44","#f3ece0","#d6c09e","#b3122e","#1b1b1b"],"keywords":"Trench · stripes · ballet flats"},"casual":{"label":"Casual Everyday","mood":"Denim, crisp tees, clean sneakers: easy, bright, lived-in.","description":"Comfortable pieces you reach for every day, styled so they still look intentional: great jeans, a fresh tee, a good tote and clean sneakers.","palette":["#ffffff","#4f7cac","#a2b8cf","#c09363","#f2c14e"],"keywords":"Denim · tees · sneakers"},"streetwear":{"label":"Streetwear","mood":"Oversized layers, cargo and combat boots on concrete.","description":"Relaxed volume with an edge. Hoodies, cargo pants, leather and puffer jackets, chunky boots and a cap, in black, grey and khaki.","palette":["#111111","#8f8f8a","#b7a88a","#556b2f","#ff5a1f"],"keywords":"Cargo · hoodies · combat boots"},"preppy":{"label":"Preppy","mood":"Pleats, polos, blazers and loafers, in campus colours.","description":"Neat and collegiate. Polo shirts, pleated skirts, navy blazers, argyle and loafers, with a satchel for the walk across campus.","palette":["#14254a","#ffffff","#1f6e46","#b22234","#8a5a35"],"keywords":"Pleats · polos · blazers"},"old-money":{"label":"Old Money","mood":"Quiet luxury: cream, navy, camel and a gold watch.","description":"Understated and refined. Linen, cable knits, tailored trousers, loafers and a gold watch, in a palette of cream, navy and camel that never shouts.","palette":["#f6f0e1","#c8a97e","#1f2f4a","#1f3a2e","#9c7a45"],"keywords":"Linen · loafers · cable knits"},"y2k":{"label":"Y2K","mood":"Low-rise flares, baby tees and tinted shades, all a little glossy.","description":"Playful early-2000s nostalgia. Baby tees, low-rise flares, minis, platform sneakers and tinted sunglasses, in candy colours with a glossy finish.","palette":["#ffb3df","#c9b6f2","#7ad7ff","#e8399f","#dfe3ea"],"keywords":"Baby tees · flares · platforms"},"dark-academia":{"label":"Dark Academia","mood":"Tweed, oxblood and old books by lamplight.","description":"Moody and scholarly. Turtlenecks, tweed blazers, plaid skirts, wool trousers and Mary Janes, in browns, black and oxblood.","palette":["#2b221d","#6b4a2f","#7a2a2a","#3f4a3a","#e9dcc0"],"keywords":"Tweed · plaid · turtlenecks"},"vintage":{"label":"Vintage","mood":"Gingham, cherry red, mustard and cat-eye sunglasses: a retro picnic.","description":"A love letter to the 50s to 70s. Gingham dresses, Peter Pan collars, sailor trousers, corduroy and cat-eye sunglasses, in cherry red and mustard.","palette":["#b8352a","#e1a730","#2f7f7a","#fff8ec","#3d2a1e"],"keywords":"Gingham · cat-eye · corduroy"},"boho":{"label":"Boho","mood":"Tiered skirts, suede and straw in sun-warmed earth tones.","description":"Free-spirited and earthy. Tiered maxi skirts, lace dresses, suede jackets, straw bags and sandals, in terracotta, sand and olive.","palette":["#b35f38","#e9d6b8","#7b7d4a","#d9a441","#fffaf0"],"keywords":"Suede · straw · tiered skirts"},"sporty-chic":{"label":"Sporty Chic","mood":"Track jackets, tennis whites and fresh sneakers, styled for brunch.","description":"Athletic pieces dressed up: tennis whites, track jackets, leggings and retro runners, worn with a smart coat or a tote.","palette":["#ffffff","#0d1b3d","#1f4bd8","#d23a3a","#a7a5a0"],"keywords":"Tennis whites · track jackets · runners"},"minimalist":{"label":"Minimalist & Clean","mood":"Few pieces, perfect proportions, a lot of white space.","description":"Calm and precise. Clean lines, neutral colours and a few excellent pieces, where the cut and the proportions do all the work.","palette":["#ffffff","#e8e6e1","#b9b6ae","#c8a97e","#141414"],"keywords":"Clean lines · neutrals · proportion"},"elegant":{"label":"Elegant & Evening","mood":"Satin, black tailoring and gold, made for the night.","description":"Polished for the evening. Satin slip dresses, black tailoring, strappy heels, a gold clutch and pearls: simple shapes in rich materials.","palette":["#0f0e0d","#6d1a2b","#b3122e","#c9a35a","#f2e8d3"],"keywords":"Satin · tailoring · gold"}},"groups":{"basic-tee":{"label":"Basic T-shirt","default":"white-tshirt"},"oversized-tee":{"label":"Oversized T-shirt","default":"grey-oversized-tshirt"},"baby-tee":{"label":"Baby Tee","default":"pink-baby-tee"}}},
 "items":[
-{"id":"white-tshirt","name":"White T-shirt","category":"tops","slot":"top","subtype":"tee","color":"white","pattern":"solid","fit":"regular","formality":[1,2],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["casual","minimalist","streetwear","sporty-chic"],"art":{"kind":"tee","fill":"#f8f6f1","variant":"regular"},"image":null},
-{"id":"black-tshirt","name":"Black T-shirt","category":"tops","slot":"top","subtype":"tee","color":"black","pattern":"solid","fit":"regular","formality":[1,2],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["casual","minimalist","streetwear"],"art":{"kind":"tee","fill":"#2a2929","variant":"regular"},"image":null},
-{"id":"grey-oversized-tshirt","name":"Grey Oversized T-shirt","category":"tops","slot":"top","subtype":"tee","color":"grey","pattern":"solid","fit":"oversized","formality":[1,1],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["streetwear","sporty-chic","casual"],"art":{"kind":"tee","fill":"#a7a5a0","variant":"oversized"},"image":null},
+{"id":"white-tshirt","name":"White T-shirt","category":"tops","slot":"top","subtype":"tee","color":"white","pattern":"solid","fit":"regular","formality":[1,2],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["casual","minimalist","streetwear","sporty-chic"],"art":{"kind":"tee","fill":"#f8f6f1","variant":"regular"},"image":null,"group":"basic-tee"},
+{"id":"black-tshirt","name":"Black T-shirt","category":"tops","slot":"top","subtype":"tee","color":"black","pattern":"solid","fit":"regular","formality":[1,2],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["casual","minimalist","streetwear"],"art":{"kind":"tee","fill":"#2a2929","variant":"regular"},"image":null,"group":"basic-tee"},
+{"id":"grey-tshirt","name":"Grey T-shirt","category":"tops","slot":"top","subtype":"tee","color":"grey","pattern":"solid","fit":"regular","formality":[1,2],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["casual","minimalist","streetwear","sporty-chic"],"art":{"kind":"tee","fill":"#a7a5a0","variant":"regular"},"image":null,"group":"basic-tee"},
+{"id":"navy-tshirt","name":"Navy T-shirt","category":"tops","slot":"top","subtype":"tee","color":"navy","pattern":"solid","fit":"regular","formality":[1,2],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["casual","minimalist","streetwear","sporty-chic","preppy"],"art":{"kind":"tee","fill":"#2f3a55","variant":"regular"},"image":null,"group":"basic-tee"},
+{"id":"beige-tshirt","name":"Beige T-shirt","category":"tops","slot":"top","subtype":"tee","color":"beige","pattern":"solid","fit":"regular","formality":[1,2],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["casual","minimalist","streetwear","sporty-chic","old-money"],"art":{"kind":"tee","fill":"#d9c4a5","variant":"regular"},"image":null,"group":"basic-tee"},
+{"id":"pink-tshirt","name":"Pink T-shirt","category":"tops","slot":"top","subtype":"tee","color":"pink","pattern":"solid","fit":"regular","formality":[1,2],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["casual","minimalist","streetwear","sporty-chic","coquette"],"art":{"kind":"tee","fill":"#e9bdb7","variant":"regular"},"image":null,"group":"basic-tee"},
+{"id":"sage-tshirt","name":"Sage T-shirt","category":"tops","slot":"top","subtype":"tee","color":"sage","pattern":"solid","fit":"regular","formality":[1,2],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["casual","minimalist","streetwear","sporty-chic","boho"],"art":{"kind":"tee","fill":"#a8b69b","variant":"regular"},"image":null,"group":"basic-tee"},
+{"id":"burgundy-tshirt","name":"Burgundy T-shirt","category":"tops","slot":"top","subtype":"tee","color":"burgundy","pattern":"solid","fit":"regular","formality":[1,2],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["casual","minimalist","streetwear","sporty-chic","dark-academia"],"art":{"kind":"tee","fill":"#6e2433","variant":"regular"},"image":null,"group":"basic-tee"},
+{"id":"grey-oversized-tshirt","name":"Grey Oversized T-shirt","category":"tops","slot":"top","subtype":"tee","color":"grey","pattern":"solid","fit":"oversized","formality":[1,1],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["streetwear","sporty-chic","casual"],"art":{"kind":"tee","fill":"#a7a5a0","variant":"oversized"},"image":null,"group":"oversized-tee"},
+{"id":"white-oversized-tshirt","name":"White Oversized T-shirt","category":"tops","slot":"top","subtype":"tee","color":"white","pattern":"solid","fit":"oversized","formality":[1,1],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["streetwear","sporty-chic","casual"],"art":{"kind":"tee","fill":"#f7f5f0","variant":"oversized"},"image":null,"group":"oversized-tee"},
+{"id":"black-oversized-tshirt","name":"Black Oversized T-shirt","category":"tops","slot":"top","subtype":"tee","color":"black","pattern":"solid","fit":"oversized","formality":[1,1],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["streetwear","sporty-chic","casual"],"art":{"kind":"tee","fill":"#2a2929","variant":"oversized"},"image":null,"group":"oversized-tee"},
+{"id":"navy-oversized-tshirt","name":"Navy Oversized T-shirt","category":"tops","slot":"top","subtype":"tee","color":"navy","pattern":"solid","fit":"oversized","formality":[1,1],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["streetwear","sporty-chic","casual","preppy"],"art":{"kind":"tee","fill":"#2f3a55","variant":"oversized"},"image":null,"group":"oversized-tee"},
+{"id":"beige-oversized-tshirt","name":"Beige Oversized T-shirt","category":"tops","slot":"top","subtype":"tee","color":"beige","pattern":"solid","fit":"oversized","formality":[1,1],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["streetwear","sporty-chic","casual","old-money"],"art":{"kind":"tee","fill":"#d9c4a5","variant":"oversized"},"image":null,"group":"oversized-tee"},
+{"id":"sage-oversized-tshirt","name":"Sage Oversized T-shirt","category":"tops","slot":"top","subtype":"tee","color":"sage","pattern":"solid","fit":"oversized","formality":[1,1],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["streetwear","sporty-chic","casual","boho"],"art":{"kind":"tee","fill":"#a8b69b","variant":"oversized"},"image":null,"group":"oversized-tee"},
 {"id":"striped-tshirt","name":"Striped T-shirt","category":"tops","slot":"top","subtype":"tee","color":"navy","pattern":"stripe","fit":"regular","formality":[1,2],"warmth":1,"seasons":["spring","summer","autumn"],"aesthetics":["casual","preppy","feminine-chic"],"art":{"kind":"tee","fill":"#f6f2ea","variant":"regular","accent":"#2f3a55"},"image":null},
-{"id":"pink-baby-tee","name":"Pink Baby Tee","category":"tops","slot":"top","subtype":"baby-tee","color":"pink","pattern":"solid","fit":"cropped","formality":[1,1],"warmth":1,"seasons":["spring","summer"],"aesthetics":["y2k","coquette","casual"],"art":{"kind":"tee","fill":"#e9bdb7","variant":"baby"},"image":null},
+{"id":"pink-baby-tee","name":"Pink Baby Tee","category":"tops","slot":"top","subtype":"baby-tee","color":"pink","pattern":"solid","fit":"cropped","formality":[1,1],"warmth":1,"seasons":["spring","summer"],"aesthetics":["y2k","coquette","casual"],"art":{"kind":"tee","fill":"#e9bdb7","variant":"baby"},"image":null,"group":"baby-tee"},
+{"id":"white-baby-tee","name":"White Baby Tee","category":"tops","slot":"top","subtype":"baby-tee","color":"white","pattern":"solid","fit":"cropped","formality":[1,1],"warmth":1,"seasons":["spring","summer"],"aesthetics":["y2k","coquette","casual"],"art":{"kind":"tee","fill":"#f7f5f0","variant":"baby"},"image":null,"group":"baby-tee"},
+{"id":"black-baby-tee","name":"Black Baby Tee","category":"tops","slot":"top","subtype":"baby-tee","color":"black","pattern":"solid","fit":"cropped","formality":[1,1],"warmth":1,"seasons":["spring","summer"],"aesthetics":["y2k","coquette","casual"],"art":{"kind":"tee","fill":"#2a2929","variant":"baby"},"image":null,"group":"baby-tee"},
+{"id":"lilac-baby-tee","name":"Lilac Baby Tee","category":"tops","slot":"top","subtype":"baby-tee","color":"lilac","pattern":"solid","fit":"cropped","formality":[1,1],"warmth":1,"seasons":["spring","summer"],"aesthetics":["y2k","coquette","casual"],"art":{"kind":"tee","fill":"#c9b6f2","variant":"baby"},"image":null,"group":"baby-tee"},
+{"id":"light-blue-baby-tee","name":"Light Blue Baby Tee","category":"tops","slot":"top","subtype":"baby-tee","color":"light-blue","pattern":"solid","fit":"cropped","formality":[1,1],"warmth":1,"seasons":["spring","summer"],"aesthetics":["y2k","coquette","casual","preppy"],"art":{"kind":"tee","fill":"#bcd1e6","variant":"baby"},"image":null,"group":"baby-tee"},
+{"id":"red-baby-tee","name":"Red Baby Tee","category":"tops","slot":"top","subtype":"baby-tee","color":"red","pattern":"solid","fit":"cropped","formality":[1,1],"warmth":1,"seasons":["spring","summer"],"aesthetics":["y2k","coquette","casual","vintage"],"art":{"kind":"tee","fill":"#b3122e","variant":"baby"},"image":null,"group":"baby-tee"},
 {"id":"white-tank-top","name":"White Tank Top","category":"tops","slot":"top","subtype":"tank","color":"white","pattern":"solid","fit":"fitted","formality":[1,2],"warmth":1,"seasons":["spring","summer"],"aesthetics":["casual","minimalist","sporty-chic","streetwear"],"art":{"kind":"tank","fill":"#f7f5f0","variant":"tank"},"image":null},
 {"id":"black-fitted-top","name":"Black Fitted Top","category":"tops","slot":"top","subtype":"tank","color":"black","pattern":"solid","fit":"fitted","formality":[1,3],"warmth":1,"seasons":["spring","summer","autumn","winter"],"aesthetics":["minimalist","elegant","casual"],"art":{"kind":"tank","fill":"#2b2a2a","variant":"tank"},"image":null},
 {"id":"ivory-lace-cami","name":"Ivory Lace Cami","category":"tops","slot":"top","subtype":"cami","color":"ivory","pattern":"lace","fit":"fitted","formality":[1,3],"warmth":1,"seasons":["spring","summer"],"aesthetics":["coquette","romantic","feminine-chic"],"art":{"kind":"tank","fill":"#f6efe1","variant":"cami"},"image":null},
@@ -906,9 +929,12 @@ const PHOTOS = {
   'beige-ballet-flats': 'images/capi/beige-ballet-flats.webp',
   'beige-blazer': 'images/capi/beige-blazer.webp',
   'beige-midi-skirt': 'images/capi/beige-midi-skirt.webp',
+  'beige-oversized-tshirt': 'images/capi/beige-oversized-tshirt.webp',
   'beige-trench-coat': 'images/capi/beige-trench-coat.webp',
+  'beige-tshirt': 'images/capi/beige-tshirt.webp',
   'beige-wide-trousers': 'images/capi/beige-wide-trousers.webp',
   'black-ankle-boots': 'images/capi/black-ankle-boots.webp',
+  'black-baby-tee': 'images/capi/black-baby-tee.webp',
   'black-baseball-cap': 'images/capi/black-baseball-cap.webp',
   'black-belt': 'images/capi/black-belt.webp',
   'black-bike-shorts': 'images/capi/black-bike-shorts.webp',
@@ -925,6 +951,7 @@ const PHOTOS = {
   'black-long-sleeve-top': 'images/capi/black-long-sleeve-top.webp',
   'black-mary-janes': 'images/capi/black-mary-janes.webp',
   'black-midi-skirt': 'images/capi/black-midi-skirt.webp',
+  'black-oversized-tshirt': 'images/capi/black-oversized-tshirt.webp',
   'black-puffer-jacket': 'images/capi/black-puffer-jacket.webp',
   'black-quilted-bag': 'images/capi/black-quilted-bag.webp',
   'black-satin-shirt': 'images/capi/black-satin-shirt.webp',
@@ -954,6 +981,7 @@ const PHOTOS = {
   'burgundy-dress': 'images/capi/burgundy-dress.webp',
   'burgundy-scarf': 'images/capi/burgundy-scarf.webp',
   'burgundy-sweater': 'images/capi/burgundy-sweater.webp',
+  'burgundy-tshirt': 'images/capi/burgundy-tshirt.webp',
   'camel-coat': 'images/capi/camel-coat.webp',
   'camel-tote': 'images/capi/camel-tote.webp',
   'camel-turtleneck': 'images/capi/camel-turtleneck.webp',
@@ -985,12 +1013,15 @@ const PHOTOS = {
   'grey-oversized-blazer': 'images/capi/grey-oversized-blazer.webp',
   'grey-oversized-tshirt': 'images/capi/grey-oversized-tshirt.webp',
   'grey-sweater': 'images/capi/grey-sweater.webp',
+  'grey-tshirt': 'images/capi/grey-tshirt.webp',
   'grey-wool-trousers': 'images/capi/grey-wool-trousers.webp',
   'ivory-lace-cami': 'images/capi/ivory-lace-cami.webp',
   'khaki-bermuda-shorts': 'images/capi/khaki-bermuda-shorts.webp',
   'khaki-cargo-pants': 'images/capi/khaki-cargo-pants.webp',
+  'light-blue-baby-tee': 'images/capi/light-blue-baby-tee.webp',
   'light-blue-shirt': 'images/capi/light-blue-shirt.webp',
   'light-wide-leg-jeans': 'images/capi/light-wide-leg-jeans.webp',
+  'lilac-baby-tee': 'images/capi/lilac-baby-tee.webp',
   'lilac-halter-top': 'images/capi/lilac-halter-top.webp',
   'little-black-dress': 'images/capi/little-black-dress.webp',
   'low-rise-flare-jeans': 'images/capi/low-rise-flare-jeans.webp',
@@ -999,9 +1030,11 @@ const PHOTOS = {
   'navy-blazer': 'images/capi/navy-blazer.webp',
   'navy-cable-sweater': 'images/capi/navy-cable-sweater.webp',
   'navy-coat': 'images/capi/navy-coat.webp',
+  'navy-oversized-tshirt': 'images/capi/navy-oversized-tshirt.webp',
   'navy-pleated-mini-skirt': 'images/capi/navy-pleated-mini-skirt.webp',
   'navy-polka-dot-dress': 'images/capi/navy-polka-dot-dress.webp',
   'navy-sailor-trousers': 'images/capi/navy-sailor-trousers.webp',
+  'navy-tshirt': 'images/capi/navy-tshirt.webp',
   'olive-bomber-jacket': 'images/capi/olive-bomber-jacket.webp',
   'olive-trousers': 'images/capi/olive-trousers.webp',
   'olive-utility-jumpsuit': 'images/capi/olive-utility-jumpsuit.webp',
@@ -1018,6 +1051,8 @@ const PHOTOS = {
   'pink-puff-sleeve-blouse': 'images/capi/pink-puff-sleeve-blouse.webp',
   'pink-ruffle-mini-skirt': 'images/capi/pink-ruffle-mini-skirt.webp',
   'pink-tinted-sunglasses': 'images/capi/pink-tinted-sunglasses.webp',
+  'pink-tshirt': 'images/capi/pink-tshirt.webp',
+  'red-baby-tee': 'images/capi/red-baby-tee.webp',
   'red-gingham-dress': 'images/capi/red-gingham-dress.webp',
   'red-plaid-shirt': 'images/capi/red-plaid-shirt.webp',
   'red-satin-slip-dress': 'images/capi/red-satin-slip-dress.webp',
@@ -1025,6 +1060,8 @@ const PHOTOS = {
   'retro-running-sneakers': 'images/capi/retro-running-sneakers.webp',
   'rust-tiered-maxi-skirt': 'images/capi/rust-tiered-maxi-skirt.webp',
   'sage-midi-dress': 'images/capi/sage-midi-dress.webp',
+  'sage-oversized-tshirt': 'images/capi/sage-oversized-tshirt.webp',
+  'sage-tshirt': 'images/capi/sage-tshirt.webp',
   'silk-headscarf': 'images/capi/silk-headscarf.webp',
   'straight-jeans': 'images/capi/straight-jeans.webp',
   'straw-basket-bag': 'images/capi/straw-basket-bag.webp',
@@ -1033,10 +1070,12 @@ const PHOTOS = {
   'tan-flat-sandals': 'images/capi/tan-flat-sandals.webp',
   'tan-shoulder-bag': 'images/capi/tan-shoulder-bag.webp',
   'tortoiseshell-glasses': 'images/capi/tortoiseshell-glasses.webp',
+  'white-baby-tee': 'images/capi/white-baby-tee.webp',
   'white-crop-top': 'images/capi/white-crop-top.webp',
   'white-linen-jumpsuit': 'images/capi/white-linen-jumpsuit.webp',
   'white-linen-shorts': 'images/capi/white-linen-shorts.webp',
   'white-off-shoulder-top': 'images/capi/white-off-shoulder-top.webp',
+  'white-oversized-tshirt': 'images/capi/white-oversized-tshirt.webp',
   'white-platform-sneakers': 'images/capi/white-platform-sneakers.webp',
   'white-polo-shirt': 'images/capi/white-polo-shirt.webp',
   'white-ruffle-blouse': 'images/capi/white-ruffle-blouse.webp',
@@ -1340,7 +1379,7 @@ const aesDot = a => AES[a].palette[AES[a].palette.length > 3 && DARK.has(a) ? 3 
 
 /* ---------------- storage (same key as before; older data is migrated) ---------------- */
 const KEY = 'idw-state-v1';
-const S = Object.assign({fav:[],quiz:null,ch:0,suitDays:3,suitSeason:SEASON_NOW,suit:{},shopAdd:[],shopChecked:{},missing:[]}, (() => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } })());
+const S = Object.assign({fav:[],quiz:null,ch:0,suitDays:3,suitSeason:SEASON_NOW,suit:{},shopAdd:[],shopChecked:{},missing:[],pick:{}}, (() => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } })());
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} };
 (function migrate(){
   if (typeof S.quiz === 'string') { const m = {Casual:'casual', Elegant:'elegant'}[S.quiz]; S.quiz = m ? {a:m, b:null} : null; if (!m) S.quizRetake = true; }
@@ -1348,11 +1387,19 @@ const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch
   S.fav = (S.fav || []).filter(k => k.split('+').every(id => BY[id]));
   S.missing = (S.missing || []).filter(id => BY[id]);
   S.shopAdd = (S.shopAdd || []).filter(id => BY[id]);
+  S.pick = Object.fromEntries(Object.entries(S.pick || {}).filter(([g, id]) => BY[id] && BY[id].group === g));
   if (!SEASONS_OK(S.suitSeason)) S.suitSeason = SEASON_NOW;
   S.v = 2; save();
   function SEASONS_OK(s){ return SCH.seasons.includes(s); }
 })();
 const owned = id => !S.missing.includes(id);
+/* colour choices: some pieces (e.g. the basic T-shirt) come in several colours. The reader picks the one she owns;
+   only that colour hangs in the wardrobe and is used by the outfit tools. */
+const GROUPS = SCH.groups || {};
+const pickOf = g => S.pick[g] || GROUPS[g].default;
+const isOn = id => { const g = T(id).group; return !g || pickOf(g) === id; };
+const ON = () => ITEMS.filter(i => isOn(i.id));
+const variantsOf = id => { const g = T(id).group; return g ? ITEMS.filter(i => i.group === g) : []; };
 
 /* ---------------- outfit engine ----------------
    An outfit = {top,bottom | onepiece, layer, shoes, bag, acc:[0–3]}. judge() applies the hard rules
@@ -1493,6 +1540,7 @@ const OCC = {
 const seasonsOf = ctx => ctx.seasons || (ctx.weather && WEATHER[ctx.weather].seasons) || null;
 function allowItem(id, ctx){
   const it = T(id), ss = seasonsOf(ctx);
+  if (!isOn(id)) return false;
   if (ss && !it.seasons.some(s => ss.includes(s))) return false;
   if (ctx.ownedOnly && !owned(id)) return false;
   for (const r of rulesOf(ctx)) if (r.items && !r.items(it)) return false;
@@ -1552,7 +1600,7 @@ function curMatch(c, ctx){
 const MEMO = new Map(), MAXB = 220;
 function quick(b, ctx){ let s = 0; for (const id of pieces(b)) { const it = T(id); if (ctx.aes && it.aesthetics.includes(ctx.aes)) s += 3; if (!owned(id)) s -= 2; } return s; }
 function candidates(ctx){
-  const sig = JSON.stringify([ctx.must, ctx.aes, ctx.seasons, ctx.occ, ctx.weather, !!ctx.ownedOnly, ctx.seed || 1, ctx.curated !== false, ctx.maxAcc, S.missing.join(',')]);
+  const sig = JSON.stringify([ctx.must, ctx.aes, ctx.seasons, ctx.occ, ctx.weather, !!ctx.ownedOnly, ctx.seed || 1, ctx.curated !== false, ctx.maxAcc, S.missing.join(','), JSON.stringify(S.pick)]);
   if (MEMO.has(sig)) return MEMO.get(sig);
   const rnd = rng(hash(sig));
   const m = ctx.must && T(ctx.must);
@@ -1596,7 +1644,7 @@ function fromKey(key){
 function countOwned(){
   let n = 0;
   for (const b of BASES) {
-    if (!pieces(b).every(owned)) continue;
+    if (!pieces(b).every(id => owned(id) && isOn(id))) continue;
     let sh = 0, bg = 0;
     for (const s of SL.shoes) if (owned(s) && judge({...b, shoes:s}).ok) sh++;
     for (const g of SL.bag) if (owned(g) && judge({...b, bag:g}).ok) bg++;
@@ -1647,14 +1695,15 @@ const CAT_IDS = Object.keys(CATS);
 const RAILS = {1: CAT_IDS.filter(c => CATS[c].zone === 'rail1'), 2: CAT_IDS.filter(c => CATS[c].zone === 'rail2')};
 const railCat = {1: RAILS[1][0], 2: RAILS[2][0]};
 let mode = 'browse', cmColor = null;
-const itemsIn = cat => ITEMS.filter(i => i.category === cat);
-function itemsForRail(r){ const c = railCat[r]; return c === 'all' ? ITEMS.filter(i => RAILS[r].includes(i.category)) : itemsIn(c); }
+const itemsIn = cat => ITEMS.filter(i => i.category === cat && isOn(i.id));
+function itemsForRail(r){ const c = railCat[r]; return c === 'all' ? ON().filter(i => RAILS[r].includes(i.category)) : itemsIn(c); }
 function itemClass(it){ return `item${owned(it.id) ? '' : ' missing'}${cmColor && it.color === cmColor ? ' hit' : ''}`; }
-function hangTile(it, i, r){ return `<button class="${itemClass(it)} hang" data-id="${it.id}" aria-label="${esc(it.name)}" style="--i:${Math.min(i, 12)};--d:${(-(hash(it.id) % 50) / 10).toFixed(1)}s"><span class="drop"><span class="swing">${r === 1 ? HANGER_TOP : HANGER_CLIP}<span class="art">${art(it.id).replace('xMidYMid', 'xMidYMin')}</span></span></span><span class="tag">${esc(it.name)}</span></button>`; }
+const vMini = it => it.group ? `<span class="vmini" aria-hidden="true">${variantsOf(it.id).map(v => `<i style="--c:${COLORS[v.color].hex}"${v.id === it.id ? ' class="on"' : ''}></i>`).join('')}</span>` : '';
+function hangTile(it, i, r){ return `<button class="${itemClass(it)} hang" data-id="${it.id}" aria-label="${esc(it.name)}" style="--i:${Math.min(i, 12)};--d:${(-(hash(it.id) % 50) / 10).toFixed(1)}s"><span class="drop"><span class="swing">${r === 1 ? HANGER_TOP : HANGER_CLIP}<span class="art">${art(it.id).replace('xMidYMid', 'xMidYMin')}</span></span></span><span class="tag">${esc(it.name)}</span>${vMini(it)}</button>`; }
 function flatTile(it, cls){ return `<button class="${itemClass(it)} ${cls}" data-id="${it.id}" aria-label="${esc(it.name)}">${artTag(it.id)}<span class="tag">${esc(it.name)}</span></button>`; }
 function renderRail(r, animate = wardrobe.classList.contains('open')){
   const block = $(`.rail-block[data-rail="${r}"]`);
-  $('.tabs', block).innerHTML = [...RAILS[r], 'all'].map(k => `<button class="tab" role="tab" data-cat="${k}" aria-selected="${railCat[r] === k}">${k === 'all' ? 'All' : esc(CATS[k].label)}<small>${k === 'all' ? ITEMS.filter(i => RAILS[r].includes(i.category)).length : itemsIn(k).length}</small></button>`).join('');
+  $('.tabs', block).innerHTML = [...RAILS[r], 'all'].map(k => `<button class="tab" role="tab" data-cat="${k}" aria-selected="${railCat[r] === k}">${k === 'all' ? 'All' : esc(CATS[k].label)}<small>${k === 'all' ? ON().filter(i => RAILS[r].includes(i.category)).length : itemsIn(k).length}</small></button>`).join('');
   const track = $('.track', block);
   track.innerHTML = itemsForRail(r).map((it, i) => hangTile(it, i, r)).join('');
   track.scrollLeft = 0;
@@ -1720,11 +1769,11 @@ $('#swatches').addEventListener('click', e => {
   interior.classList.toggle('cm', !!cmColor);
   if (!cmColor) { $('#cmText').textContent = 'Pick a colour to see what it works with.'; refreshItemStates(); return; }
   openWardrobe();
-  for (const r of [1, 2]) { const hits = ITEMS.filter(i => i.color === c && RAILS[r].includes(i.category)); if (hits.length && !hits.some(i => i.category === railCat[r])) railCat[r] = hits.every(i => i.category === hits[0].category) ? hits[0].category : 'all'; }
+  for (const r of [1, 2]) { const hits = ON().filter(i => i.color === c && RAILS[r].includes(i.category)); if (hits.length && !hits.some(i => i.category === railCat[r])) railCat[r] = hits.every(i => i.category === hits[0].category) ? hits[0].category : 'all'; }
   renderRail(1, false); renderRail(2, false); refreshItemStates();
-  $$('.drawer').forEach(d => setDrawer(d, ITEMS.some(i => i.category === d.dataset.drawer && i.color === c)));
+  $$('.drawer').forEach(d => setDrawer(d, ON().some(i => i.category === d.dataset.drawer && i.color === c)));
   $$('.track,.shelf-track').forEach(t => { const h = $('.item.hit', t); if (h) t.scrollTo({left:Math.max(0, h.offsetLeft - 14), behavior:reduced() ? 'auto' : 'smooth'}); });
-  const n = ITEMS.filter(i => i.color === c).length, C = COLORS[c];
+  const n = ON().filter(i => i.color === c).length, C = COLORS[c];
   $('#cmText').innerHTML = `<b>${C.name}</b> — ${n} piece${n > 1 ? 's' : ''} lit up. ${C.name} works with ${listWords(C.works.map(w => COLORS[w].name.toLowerCase()))}.`;
   wardrobe.scrollIntoView({behavior:reduced() ? 'auto' : 'smooth', block:'start'});
 });
@@ -1771,7 +1820,7 @@ function worksWith(id){
 }
 function alternatives(it){
   const ov = (a, b) => Math.max(a[0], b[0]) <= Math.min(a[1], b[1]);
-  return ITEMS.filter(x => x.id !== it.id && x.slot === it.slot).map(x => ({x, s:(x.subtype === it.subtype ? 3 : 0) + (x.category === it.category ? 1.5 : 0) + x.aesthetics.filter(a => it.aesthetics.includes(a)).length + (ov(x.formality, it.formality) ? 1 : -2) - (BOLD.has(x.pattern) ? 1 : 0) + (x.color === it.color ? 1.5 : 0)})).sort((a, b) => b.s - a.s).slice(0, 3).map(a => a.x);
+  return ON().filter(x => x.id !== it.id && x.slot === it.slot && !(it.group && x.group === it.group)).map(x => ({x, s:(x.subtype === it.subtype ? 3 : 0) + (x.category === it.category ? 1.5 : 0) + x.aesthetics.filter(a => it.aesthetics.includes(a)).length + (ov(x.formality, it.formality) ? 1 : -2) - (BOLD.has(x.pattern) ? 1 : 0) + (x.color === it.color ? 1.5 : 0)})).sort((a, b) => b.s - a.s).slice(0, 3).map(a => a.x);
 }
 let itemState = {id:null, aes:null, extra:null};
 function openItem(id){
@@ -1795,6 +1844,7 @@ function renderItem(){
     <h2 class="is-name">${esc(it.name)}</h2>
     <div class="is-hero">${artTag(id)}</div>
     <div class="meta"><span class="chip" style="--c:${C.hex}"><i></i>${C.name}</span><span class="chip">${lv}</span>${it.warmth ? `<span class="chip">${WARMTH[it.warmth]} warmth</span>` : ''}<span class="chip">${it.fit[0].toUpperCase() + it.fit.slice(1)} fit</span>${it.pattern !== 'solid' ? `<span class="chip">${it.pattern[0].toUpperCase() + it.pattern.slice(1)}</span>` : ''}<span class="chip">${it.seasons.length === 4 ? 'All year' : it.seasons.map(s => SEASON_LABEL[s]).join(' · ')}</span></div>
+    ${it.group ? `<h3>Choose your colour</h3><div class="vpick" role="group" aria-label="${esc(GROUPS[it.group].label)} colours">${variantsOf(id).map(v => `<button class="vdot${v.id === id ? ' on' : ''}" data-variant="${v.id}" style="--c:${COLORS[v.color].hex}" aria-pressed="${isOn(v.id)}" aria-label="${esc(COLORS[v.color].name)}" title="${esc(COLORS[v.color].name)}"></button>`).join('')}</div><p class="note">${isOn(id) ? `✓ ${esc(COLORS[it.color].name)} is the colour in your wardrobe. Tap another colour if yours is different: the wardrobe and every outfit will use it.` : `Your wardrobe uses another colour. Tap ${esc(COLORS[it.color].name.toLowerCase())} again to put this one in your wardrobe.`}</p>` : ''}
     <h3>Style it</h3>
     <div class="tabs st-tabs" role="tablist" aria-label="Aesthetics">${extraTabs.map(a => `<button class="tab" role="tab" data-style="${a}" aria-selected="${a === aes}"><i style="--d:${aesDot(a)}"></i>${esc(AES[a].label)}</button>`).join('')}${moreBtn}</div>
     ${o ? `<div class="look appear" data-aes="${aes}"${DARK.has(aes) ? ' data-dark' : ''}><div class="look-name"><span class="oc-label">${esc(o.name || 'A ' + AES[aes].label + ' look')}</span><span class="aes-chip">${o.curated ? 'Curated' : 'Styled for you'}</span></div><div>${flatlay(o)}</div><div class="pieces">${o.p.map(x => `<button class="piece${owned(x) ? '' : ' miss'}" data-open-item="${x}">${artTag(x)}<span>${esc(T(x).name)}</span></button>`).join('')}<div style="margin-top:6px">${heartBtn(o, true)}</div></div></div>` : '<p class="note">No look found for this style.</p>'}
@@ -1810,6 +1860,8 @@ function renderItem(){
   const sel = $('#itemBody .st-tabs [aria-selected="true"]'); if (sel) sel.scrollIntoView({block:'nearest', inline:'center'});
 }
 $('#itemBody').addEventListener('click', e => {
+  const vd = e.target.closest('[data-variant]');
+  if (vd) { const v = T(vd.dataset.variant); S.pick[v.group] = v.id; save(); clearMemo(); itemState.id = v.id; if (!relAes(v.id).includes(itemState.aes)) itemState.aes = relAes(v.id)[0]; renderItem(); renderWardrobe(false); updateCounts(); return; }
   const st = e.target.closest('[data-style]'); if (st) { itemState.aes = st.dataset.style; renderItem(); return; }
   if (e.target.closest('[data-more-styles]')) { itemState.extra = compatibleExtra(itemState.id, relAes(itemState.id).slice(0, 4)); renderItem(); return; }
   const sv = e.target.closest('[data-seven]'); if (sv) { closeOv($('#itemOv')); openTool('seven', sv.dataset.seven); return; }
@@ -1881,8 +1933,8 @@ $('#dockActions').addEventListener('click', e => {
 });
 function toggleOwned(id){ const i = S.missing.indexOf(id); if (i >= 0) S.missing.splice(i, 1); else S.missing.push(id); save(); clearMemo(); refreshItemStates(); renderCloset(); updateCounts(); }
 function renderCloset(){
-  const n = ITEMS.length - S.missing.length, c = countOwned();
-  $('#dockBoard').innerHTML = `<div class="big-num">${n}<small>of ${ITEMS.length} pieces</small></div>`;
+  const n = ON().filter(i => owned(i.id)).length, c = countOwned();
+  $('#dockBoard').innerHTML = `<div class="big-num">${n}<small>of ${ON().length} pieces</small></div>`;
   $('#dockTitle').textContent = 'My closet';
   const t = $('#dockTip'); t.className = 'dock-tip';
   t.innerHTML = `Tap the pieces you <b>don’t</b> own — they turn grey. With what you own you can make about <b>${c.toLocaleString('en-US')}</b> outfits, before layers and accessories.`;
@@ -2157,7 +2209,7 @@ function capsule(days, season){
   const ck = days + season + S.missing.join(','); if (ck in CAPS) return CAPS[ck];
   const [nt, nb] = {2:[2,1],3:[2,2],4:[2,2],5:[3,2],6:[3,2],7:[4,2]}[days];
   const r = rng(hash('suitcase' + days + season)), ctx = {seasons:[season]};
-  const ok = id => T(id).seasons.includes(season);
+  const ok = id => isOn(id) && T(id).seasons.includes(season);
   const tops = SL.top.filter(ok), bots = SL.bottom.filter(ok);
   const lays = season === 'summer' ? [] : SL.layer.filter(id => ok(id) && (season === 'winter' ? (COATS.has(sub(id)) || sub(id) === 'puffer') : !['sweater-vest'].includes(sub(id))));
   const shoes = SL.shoes.filter(id => ok(id) && !['pumps','strappy-heels'].includes(sub(id))), bags = SL.bag.filter(id => ['tote','crossbody-bag'].includes(sub(id)));
@@ -2188,7 +2240,7 @@ function capsule(days, season){
 function renderStrip(){
   const links = AES_IDS.map(a => `<a class="aes-link" href="#style-${a}" data-aes-link="${a}" style="--d:${aesDot(a)}"><i></i>${esc(AES[a].label)}</a>`).join('');
   $('#aesStrip').innerHTML = links; $('#libNav').innerHTML = links;
-  $('#stats').innerHTML = `<span><b>${ITEMS.length}</b>pieces</span><span><b>${CURATED.length}</b>curated looks</span><span><b>${AES_IDS.length}</b>styles</span><span><b>15</b>tools</span>`;
+  $('#stats').innerHTML = `<span><b>${ON().length}</b>pieces</span><span><b>${CURATED.length}</b>curated looks</span><span><b>${AES_IDS.length}</b>styles</span><span><b>15</b>tools</span>`;
 }
 function renderBands(){
   $('#libBands').innerHTML = AES_IDS.map((a, i) => { const A = AES[a];
@@ -2199,7 +2251,7 @@ function renderBands(){
 function fillBand(a){
   const el = $(`.band-body[data-band="${a}"]`); if (!el || el.dataset.done) return; el.dataset.done = '1';
   const outs = CURATED.filter(c => c.aes === a);
-  const keys = ITEMS.filter(i => i.aesthetics[0] === a || (i.aesthetics.includes(a) && CURATED.some(c => c.aes === a && c.p.includes(i.id)))).slice(0, 12);
+  const keys = ON().filter(i => i.aesthetics[0] === a || (i.aesthetics.includes(a) && CURATED.some(c => c.aes === a && c.p.includes(i.id)))).slice(0, 12);
   el.innerHTML = `<div class="ogrid">${outs.map((o, i) => outfitCard(o, {style:`--i:${i}`})).join('')}</div><h4>Key pieces</h4><div class="key-pieces">${keys.map(x => `<button class="mini" data-open-item="${x.id}">${artTag(x.id)}<span>${esc(x.name)}</span></button>`).join('')}</div><div class="band-actions"><button class="btn t" data-gen="${a}">Style a new ${esc(AES[a].label)} look</button><button class="btn t ghost" data-tool="quiz">Take the style quiz</button></div><div class="gen-slot"></div>`;
 }
 function goToBand(a){ const i = AES_IDS.indexOf(a); AES_IDS.slice(0, i + 2).forEach(fillBand); const el = $('#style-' + a); if (el) el.scrollIntoView({behavior:reduced() ? 'auto' : 'smooth', block:'start'}); }
