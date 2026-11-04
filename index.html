@@ -933,7 +933,9 @@ window.validateInventory = function (data, opts = {}) {
     const top = BY[it.top], bot = BY[it.bottom], lay = BY[it.layer], sh = BY[it.shoes];
     if (lay && COAT.includes(lay.subtype) && top && TOP_BARE.includes(top.subtype)) e(`coat over a ${top.subtype}`);
     if (lay && top && top.subtype === 'sweater' && !COAT.includes(lay.subtype) && lay.subtype !== 'puffer') e('only a coat can go over a bulky sweater');
-    if (lay && lay.subtype === 'sweater-vest' && !(top && VEST_OK.includes(top.subtype))) e('a sweater vest needs a shirt or tee underneath');
+    if (lay && ['sweater-vest','waistcoat'].includes(lay.subtype) && !(top && [...VEST_OK,'puff-blouse','ruffle-blouse'].includes(top.subtype))) e('a vest or waistcoat needs a shirt, blouse or tee underneath');
+    if (lay && top && ['vest-top','halter','off-shoulder','lace-top'].includes(top.subtype)) e(`no layer over a ${top.subtype}`);
+    if (lay && top && top.subtype === 'corset' && !['blazer','biker-jacket','tweed-jacket','cropped-trench'].includes(lay.subtype)) e('only a blazer or a short jacket over a corset');
     if (bot && bot.id === 'baggy-jeans' && sh && ['pumps', 'ballet-flats', 'strappy-heels'].includes(sh.subtype)) e('baggy jeans with heels or flats');
     if (bot && ['joggers', 'flare-leggings', 'bike-shorts'].includes(bot.subtype) && sh && ['pumps', 'strappy-heels', 'slingbacks'].includes(sh.subtype)) e('athletic bottom with heels');
     for (const a of acc.map(x => BY[x])) {
@@ -1487,7 +1489,10 @@ ITEMS.forEach(i => SL[i.slot].push(i.id));
 const CORE = ['onepiece','top','bottom','layer','shoes','bag'];
 const COATS = new Set(['wrap-coat','double-breasted-coat','trench','long-coat','teddy-coat']);
 const BARE = new Set(['tee','baby-tee','tank','cami','corset','crop-top','halter','off-shoulder']);
-const VEST_OK = new Set(['shirt','polo','tee','long-sleeve','blouse','peter-pan-blouse']);
+const VEST_OK = new Set(['shirt','polo','tee','long-sleeve','blouse','peter-pan-blouse','puff-blouse','ruffle-blouse']);
+const VESTS = new Set(['sweater-vest','waistcoat']);                 // worn over a sleeved shirt, blouse or tee only
+const SOLO_TOP = new Set(['vest-top','halter','off-shoulder','lace-top']);   // statement tops: nothing goes over them
+const CORSET_LAYER = new Set(['blazer','biker-jacket','tweed-jacket','cropped-trench']);
 const BOLD = new Set(SCH.boldPatterns);
 const W = {top:3,bottom:3,onepiece:4,layer:2,shoes:1.5,bag:1.2,accessory:1};
 const WARM_N = new Set(['camel','brown','beige','tan','cream']);
@@ -1522,7 +1527,8 @@ const WHY = {
   denim:'Skip double denim — one denim piece at a time.',
   coat:'A coat looks better over a knit or a shirt than over a bare top.',
   knit:'Wear a chunky knit on its own or under a coat.',
-  vest:'A sweater vest needs a shirt or a tee underneath.',
+  vest:'A vest or waistcoat needs a shirt, blouse or tee underneath.',
+  solo:'This top is the statement — wear it without a layer (a blazer at most over a corset).',
   baggy:'Baggy jeans look best with sneakers, loafers or boots.',
   athletic:'Keep heels away from joggers, leggings and bike shorts.',
   scarf:'Save the scarf for knits and coats.',
@@ -1549,7 +1555,9 @@ function judge(o){
   const t = sub(o.top), l = sub(o.layer), b = o.bottom, s = sub(o.shoes);
   if (l && COATS.has(l) && t && BARE.has(t)) return {ok:false, why:'coat'};
   if (l && t === 'sweater' && !COATS.has(l) && l !== 'puffer') return {ok:false, why:'knit'};
-  if (l === 'sweater-vest' && !(t && VEST_OK.has(t))) return {ok:false, why:'vest'};
+  if (VESTS.has(l) && !(t && VEST_OK.has(t))) return {ok:false, why:'vest'};
+  if (l && t && SOLO_TOP.has(t)) return {ok:false, why:'solo'};
+  if (l && t === 'corset' && !CORSET_LAYER.has(l)) return {ok:false, why:'solo'};
   if (b === 'baggy-jeans' && ['pumps','ballet-flats','strappy-heels'].includes(s)) return {ok:false, why:'baggy'};
   if (b && ['joggers','flare-leggings','bike-shorts'].includes(sub(b)) && ['pumps','strappy-heels','slingbacks'].includes(s)) return {ok:false, why:'athletic'};
   const A = o.acc || [];
@@ -1920,7 +1928,9 @@ function relAes(id){
   return order;
 }
 function lookFor(id, a){ return generate({must:id, aes:a, seed:hash(id + a)}, 1)[0] || null; }
-function compatibleExtra(id, shown){ return AES_IDS.filter(a => !shown.includes(a)).filter(a => { const o = lookFor(id, a); return o && coherence(o, a) >= .5; }); }
+const AES_GROUPS = [['old-money','elegant','feminine-chic','dark-academia','preppy','minimalist'],['coquette','romantic','vintage','feminine-chic'],['casual','streetwear','sporty-chic','y2k','boho']];
+const nearAes = id => new Set(AES_GROUPS.filter(g => T(id).aesthetics.some(a => g.includes(a))).flat());
+function compatibleExtra(id, shown){ const near = nearAes(id); return AES_IDS.filter(a => !shown.includes(a) && near.has(a)).filter(a => { const o = lookFor(id, a); return o && coherence(o, a) >= .6; }); }
 function worksWith(id){
   const cnt = {}, me = T(id);
   candidates({must:id}).slice().sort((a, b) => b.sc - a.sc).slice(0, 60).forEach(o => o.p.forEach(x => { if (x !== id && T(x).slot !== me.slot) cnt[x] = (cnt[x] || 0) + 1; }));
