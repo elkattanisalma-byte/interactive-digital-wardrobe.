@@ -1,6 +1,6 @@
 # The Interactive Digital Wardrobe
 
-An interactive fashion ebook in a single web page: an animated wooden wardrobe with 147 pieces, 56 curated outfits in 14 aesthetics, an automatic outfit generator and 15 styling tools. All texts are in English. Everything runs in the browser: no server and no account are needed, and saved looks are stored on the reader's device.
+An interactive fashion ebook in a single web page: an animated wooden wardrobe with 281 pieces (plus colour choices for the basic tees), 103 curated outfits in 14 aesthetics, an automatic outfit generator and 15 styling tools. All texts are in English. Everything runs in the browser: no server and no account are needed, and saved looks are stored on the reader's device.
 
 ## Open it
 
@@ -31,7 +31,7 @@ The same photo is used everywhere: wardrobe, item panel, outfit flat-lays (compo
 
 ## Styling rules
 
-The owner's styling rules live in `.claude/skills/stylist/SKILL.md` (colour families, repeated accent, matching shoes and bag, one leather tone, gold only, one pattern, silhouettes). The outfit generator follows them and `node tools/check-data.mjs` rejects a curated look that breaks them.
+The owner's styling rules live in `.claude/skills/stylist/SKILL.md` (colour families, repeated accent, matching shoes and bag, one leather tone, gold or silver but not both, one pattern, silhouettes). The outfit generator follows them and `node tools/check-data.mjs` rejects a curated look that breaks them.
 
 ## Edit the catalog
 

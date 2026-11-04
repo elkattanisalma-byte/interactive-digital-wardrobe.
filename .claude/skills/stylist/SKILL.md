@@ -6,7 +6,8 @@ description: The owner's styling rules for The Interactive Digital Wardrobe. Use
 # Stylist rules
 
 These rules come from the owner's own reference outfits (tonal chocolate brown, burgundy with navy pinstripe,
-red with cream polka dots, forest green with beige, butter yellow with black, blue tweed with white).
+red with cream polka dots, forest green with beige, butter yellow with black, blue tweed with white, and 42 more
+boards: leopard with burgundy, butter with denim, lilac with dark denim, black waistcoats with silver, cream capes).
 They are enforced in code — `styleWhy()` in the outfit engine and the stylist block in `#idw-validate`
 (`node tools/check-data.mjs` fails on a curated look that breaks them) — but taste goes beyond code:
 always look at the finished flat-lay before calling a look done.
@@ -14,7 +15,8 @@ always look at the finished flat-lay before calling a look done.
 ## Colour
 1. **Two, at most three colour families per outfit** (clothes, shoes and bag). Families:
    black (black, charcoal) · light (white, ivory, cream, champagne, beige) · camel (camel, tan, khaki) ·
-   brown · blue (navy, denim, light blue) · grey · each accent colour on its own. Gold is a metal and never counts.
+   brown · blue (navy, light blue) · grey · each accent colour on its own. Gold and silver are metals and never count;
+   denim and leopard print are neutrals and never count either (white shirt, red vest, jeans and black boots is fine).
 2. **Two formulas**: tonal (everything in one family, e.g. all chocolate brown, all burgundy) or
    **neutral base + one accent** (burgundy, red, forest green, butter yellow, pink, lilac, sage, olive, rust, mustard).
 3. **Repeat the accent** at least twice (top + bag, bag + shoes + earrings, knit + bag + hair bow).
@@ -23,10 +25,13 @@ always look at the finished flat-lay before calling a look done.
 4. Denim and navy count as neutrals: dark denim with brown or burgundy, navy pinstripe with burgundy.
 
 ## Shoes, bag, metals
-5. **Shoes and bag match**: same family, or both in the repeated accent. Exceptions: a gold clutch or gold sandals;
-   sneakers (sporty/street looks) with a neutral bag.
+5. **Shoes and bag match**: same family, or the repeated accent with a neutral partner (lilac bag + white mules,
+   burgundy sneakers + black bag), or two neutrals that both come from the clothes (black-and-cream plaid cape:
+   cream boots, black bag). Exceptions: a gold clutch or gold sandals; white, cream or grey sneakers with any neutral bag.
 6. **One leather tone**: chocolate brown and camel/tan leathers are never mixed in shoes, bag and belt.
-7. **Gold jewellery only**, usually 2–3 pieces (hoops or drops, watch, fine chain, bangle, pearls).
+7. **One metal**: gold (the default) or silver for cool black, white, denim and lilac looks — never both. Usually 2–3 pieces
+   (hoops or drops, watch, fine chain, bangle, pearls). Tights and leg warmers only with skirts, shorts and dresses;
+   one hair piece (bow, headband, beret, claw clip, cap).
 
 ## Shape
 8. Fitted or waist-defined top (corset, wrap shirt, fitted knit, waistcoat, belt) over a wide or long bottom
