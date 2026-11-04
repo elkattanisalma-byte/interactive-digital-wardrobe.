@@ -800,7 +800,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:46px 16px cal
 {"id":"weekend-market","name":"Weekend Market","aesthetic":"casual","items":{"top":"white-tank-top","bottom":"white-linen-shorts","shoes":"tan-flat-sandals","bag":"straw-basket-bag"},"accessories":["straw-sun-hat","gold-bangle"],"occasions":["weekend","travel"],"seasons":["summer"],"palette":["white","tan","gold"]},
 {"id":"concrete-weekend","name":"Concrete Weekend","aesthetic":"streetwear","items":{"top":"grey-hoodie","bottom":"baggy-jeans","layer":"black-leather-jacket","shoes":"black-combat-boots","bag":"black-crossbody-bag"},"accessories":["black-baseball-cap","gold-hoops"],"occasions":["weekend"],"seasons":["autumn"],"palette":["grey","denim","black","gold"]},
 {"id":"chocolate-bomber","name":"Chocolate Bomber","aesthetic":"streetwear","items":{"top":"white-tshirt","bottom":"brown-denim-maxi-skirt","layer":"brown-denim-bomber","shoes":"brown-heeled-knee-boots","bag":"brown-hobo-bag"},"accessories":["gold-hoops"],"occasions":["weekend","date"],"seasons":["autumn"],"palette":["white","brown","gold"]},
-{"id":"off-duty-bomber","name":"Off-Duty Bomber","aesthetic":"streetwear","items":{"top":"white-crop-top","bottom":"khaki-cargo-pants","layer":"olive-bomber-jacket","shoes":"white-platform-sneakers","bag":"camel-tote"},"accessories":["black-baseball-cap","gold-hoops"],"occasions":["weekend"],"seasons":["spring"],"palette":["white","khaki","olive","camel","black","gold"]},
+{"id":"off-duty-bomber","name":"Off-Duty Bomber","aesthetic":"streetwear","items":{"top":"white-crop-top","bottom":"khaki-cargo-pants","layer":"olive-bomber-jacket","shoes":"white-platform-sneakers","bag":"camel-tote"},"accessories":["gold-hoops","black-sunglasses"],"occasions":["weekend"],"seasons":["spring"],"palette":["white","khaki","olive","camel","gold","black"]},
 {"id":"skate-park-plaid","name":"Skate Park Plaid","aesthetic":"streetwear","items":{"top":"red-plaid-shirt","bottom":"black-skinny-jeans","shoes":"black-combat-boots","bag":"black-tote"},"accessories":["black-baseball-cap","gold-hoops"],"occasions":["weekend"],"seasons":["autumn","winter"],"palette":["red","black","gold"]},
 {"id":"campus-morning","name":"Campus Morning","aesthetic":"preppy","items":{"top":"white-polo-shirt","bottom":"navy-pleated-mini-skirt","layer":"navy-blazer","shoes":"brown-loafers","bag":"brown-satchel"},"accessories":["gold-watch","pearl-earrings"],"occasions":["work","weekend"],"seasons":["spring"],"palette":["white","navy","brown","gold","ivory"]},
 {"id":"ivy-library","name":"Ivy Library","aesthetic":"preppy","items":{"top":"light-blue-shirt","bottom":"beige-midi-skirt","layer":"cream-cable-vest","shoes":"brown-loafers","bag":"brown-satchel"},"accessories":["tortoiseshell-glasses","gold-watch"],"occasions":["work","weekend"],"seasons":["spring","autumn"],"palette":["light-blue","beige","cream","brown","gold"]},
@@ -929,13 +929,22 @@ window.validateInventory = function (data, opts = {}) {
         if (!(fs === fb || fs === 'gold' || fb === 'gold' || /sneakers/.test(sh0.subtype) || (ac.length >= 2 && (colors[sh0.color].accent || colors[bg0.color].accent)))) e(`shoes (${sh0.color}) and bag (${bg0.color}) don't match`); }
       const lea = new Set([sh0, bg0, ...acc.map(x => BY[x]).filter(a => a.subtype === 'belt')].filter(Boolean).map(p => fam(p.color)).filter(f => f === 'brown' || f === 'camel'));
       if (lea.size > 1) e('brown and camel leather mixed');
+      if (acc.filter(x => /earrings/.test(BY[x].subtype)).length > 1) e('two pairs of earrings');
+      if (acc.filter(x => ['hair-bow','headband','headscarf','cap','sun-hat'].includes(BY[x].subtype)).length > 1) e('two hair or head accessories');
+      const coreF = new Set(core.map(p => fam(p.color)));
+      for (const a of acc.map(x => BY[x])) {
+        if (a.subtype === 'belt' && sh0 && bg0 && fam(a.color) !== fam(sh0.color) && fam(a.color) !== fam(bg0.color)) e('belt does not match the shoes or the bag');
+        if (['hair-bow','headband','cap','belt','scarf','neck-scarf','headscarf'].includes(a.subtype) && !colors[a.color].accent && fam(a.color) !== 'gold' && !coreF.has(fam(a.color))) e(`${a.id} picks up no colour of the outfit`);
+      }
     }
     const top = BY[it.top], bot = BY[it.bottom], lay = BY[it.layer], sh = BY[it.shoes];
     if (lay && COAT.includes(lay.subtype) && top && TOP_BARE.includes(top.subtype)) e(`coat over a ${top.subtype}`);
     if (lay && top && top.subtype === 'sweater' && !COAT.includes(lay.subtype) && lay.subtype !== 'puffer') e('only a coat can go over a bulky sweater');
-    if (lay && ['sweater-vest','waistcoat'].includes(lay.subtype) && !(top && [...VEST_OK,'puff-blouse','ruffle-blouse'].includes(top.subtype))) e('a vest or waistcoat needs a shirt, blouse or tee underneath');
+    if (lay && ['sweater-vest','waistcoat'].includes(lay.subtype) && !(top && ['shirt','polo','tee','blouse','peter-pan-blouse','ruffle-blouse'].includes(top.subtype))) e('a vest or waistcoat needs a shirt, blouse or tee underneath');
     if (lay && top && ['vest-top','halter','off-shoulder','lace-top'].includes(top.subtype)) e(`no layer over a ${top.subtype}`);
     if (lay && top && top.subtype === 'corset' && !['blazer','biker-jacket','tweed-jacket','cropped-trench'].includes(lay.subtype)) e('only a blazer or a short jacket over a corset');
+    if (lay && /cardigan/.test(lay.subtype) && top && top.subtype === 'puff-blouse') e('no cardigan over puff sleeves');
+    if (top && top.subtype === 'corset' && bot && bot.category === 'shorts') e('corset with shorts');
     if (bot && bot.id === 'baggy-jeans' && sh && ['pumps', 'ballet-flats', 'strappy-heels'].includes(sh.subtype)) e('baggy jeans with heels or flats');
     if (bot && ['joggers', 'flare-leggings', 'bike-shorts'].includes(bot.subtype) && sh && ['pumps', 'strappy-heels', 'slingbacks'].includes(sh.subtype)) e('athletic bottom with heels');
     for (const a of acc.map(x => BY[x])) {
@@ -1489,7 +1498,7 @@ ITEMS.forEach(i => SL[i.slot].push(i.id));
 const CORE = ['onepiece','top','bottom','layer','shoes','bag'];
 const COATS = new Set(['wrap-coat','double-breasted-coat','trench','long-coat','teddy-coat']);
 const BARE = new Set(['tee','baby-tee','tank','cami','corset','crop-top','halter','off-shoulder']);
-const VEST_OK = new Set(['shirt','polo','tee','long-sleeve','blouse','peter-pan-blouse','puff-blouse','ruffle-blouse']);
+const VEST_OK = new Set(['shirt','polo','tee','blouse','peter-pan-blouse','ruffle-blouse']);
 const VESTS = new Set(['sweater-vest','waistcoat']);                 // worn over a sleeved shirt, blouse or tee only
 const SOLO_TOP = new Set(['vest-top','halter','off-shoulder','lace-top']);   // statement tops: nothing goes over them
 const CORSET_LAYER = new Set(['blazer','biker-jacket','tweed-jacket','cropped-trench']);
@@ -1502,6 +1511,8 @@ const FAM = {black:'black',charcoal:'black',white:'light',ivory:'light',cream:'l
 const fam = c => FAM[c] || c;
 const ELEGANT_AES = new Set(['old-money','feminine-chic','elegant','coquette','romantic','dark-academia','preppy','vintage','minimalist']);
 const isSneaker = it => /sneakers/.test(it.subtype);
+const HAIR = new Set(['hair-bow','headband','headscarf','cap','sun-hat']);
+const LOUD_ACC = new Set(['hair-bow','headband','cap','belt','scarf','neck-scarf','headscarf']);   // must pick up a colour of the outfit
 function styleWhy(o){
   const main = ['top','bottom','onepiece','layer'].filter(k => o[k]).map(k => T(o[k]));
   const sh = o.shoes && T(o.shoes), bg = o.bag && T(o.bag), A = (o.acc || []).map(T);
@@ -1511,8 +1522,17 @@ function styleWhy(o){
   const accents = [...core, ...A].filter(p => COLORS[p.color].accent);
   if (accents.length === 1 && ['shoes','bag','accessory'].includes(accents[0].slot)) return 'accent';
   if (sh && bg) {
-    const fs = fam(sh.color), fb = fam(bg.color), rep = accents.length >= 2;
-    if (!(fs === fb || fs === 'gold' || fb === 'gold' || isSneaker(sh) || (rep && (COLORS[sh.color].accent || COLORS[bg.color].accent)))) return 'match';
+    const fs = fam(sh.color), fb = fam(bg.color), rep = accents.length >= 2, dark = f => f === 'black' || f === 'brown';
+    const accentPair = rep && ((COLORS[sh.color].accent && dark(fb)) || (COLORS[bg.color].accent && dark(fs)));
+    const goldPair = (fb === 'gold' && (fs === 'black' || fs === 'light')) || fs === 'gold';
+    if (!(fs === fb || goldPair || isSneaker(sh) || accentPair)) return 'match';
+  }
+  const ear = A.filter(a => /earrings/.test(a.subtype)).length, hair = A.filter(a => HAIR.has(a.subtype)).length;
+  if (ear > 1 || hair > 1) return 'accfam';
+  const coreF = new Set([...main, sh, bg].filter(Boolean).map(p => fam(p.color)));
+  for (const a of A) {
+    if (a.subtype === 'belt' && sh && bg && fam(a.color) !== fam(sh.color) && fam(a.color) !== fam(bg.color)) return 'belt2';
+    if (LOUD_ACC.has(a.subtype) && !COLORS[a.color].accent && fam(a.color) !== 'gold' && !coreF.has(fam(a.color))) return 'lonely';
   }
   const lea = new Set([sh, bg, ...A.filter(a => a.subtype === 'belt')].filter(Boolean).map(p => fam(p.color)).filter(f => f === 'brown' || f === 'camel'));
   if (lea.size > 1) return 'leather';
@@ -1538,6 +1558,8 @@ const WHY = {
   accent:'Repeat the accent colour at least twice, or wear it on the main piece.',
   match:'Match the shoes and the bag — same colour, or the accent colour repeated.',
   leather:'Keep the leathers in one tone — chocolate brown or camel, not both.',
+  belt2:'Match the belt to the shoes or the bag.',
+  lonely:'Every accessory should pick up a colour already in the outfit.',
   acc3:'Three accessories is the maximum.',
 };
 function judge(o){
@@ -1558,6 +1580,9 @@ function judge(o){
   if (VESTS.has(l) && !(t && VEST_OK.has(t))) return {ok:false, why:'vest'};
   if (l && t && SOLO_TOP.has(t)) return {ok:false, why:'solo'};
   if (l && t === 'corset' && !CORSET_LAYER.has(l)) return {ok:false, why:'solo'};
+  if (l && /cardigan/.test(l) && t === 'puff-blouse') return {ok:false, why:'solo'};
+  if (t === 'corset' && b && T(b).category === 'shorts') return {ok:false, why:'mix'};
+  if (o.onepiece && sub(o.onepiece) === 'utility-jumpsuit' && l) return {ok:false, why:'solo'};
   if (b === 'baggy-jeans' && ['pumps','ballet-flats','strappy-heels'].includes(s)) return {ok:false, why:'baggy'};
   if (b && ['joggers','flare-leggings','bike-shorts'].includes(sub(b)) && ['pumps','strappy-heels','slingbacks'].includes(s)) return {ok:false, why:'athletic'};
   const A = o.acc || [];
@@ -1589,6 +1614,11 @@ function score(o, j, ctx){
   { const ac = P.filter(p => COLORS[p.color].accent).length; if (ac >= 2) s += 1; }                                                 // accent repeated
   s += Math.min(2, P.filter(p => p.slot === 'accessory' && p.color === 'gold').length) * .6;                                      // gold jewellery
   if (ctx.aes && ELEGANT_AES.has(ctx.aes) && sh && (isSneaker(sh) || sh.subtype === 'combat-boots')) s -= 3;                     // polished shoes for polished styles
+  { const clothF = new Set(cl.map(p => fam(p.color)));                                                                         // black shoes and bag on an all-light outfit look harsh
+    if (sh && bg && fam(sh.color) === 'black' && fam(bg.color) === 'black' && !clothF.has('black') && [...clothF].every(f => f === 'light' || f === 'camel')) s -= 2.5; }
+  { const lay = o.layer && T(o.layer), sporty = P.some(p => p.subtype === 'cap') || (sh && isSneaker(sh));                    // caps and sneakers stay away from tailored coats
+    if (sporty && lay && (COATS.has(lay.subtype) || lay.subtype === 'blazer')) s -= 2.5;
+    if (P.some(p => p.subtype === 'cap') && sh && !isSneaker(sh) && sh.subtype !== 'combat-boots') s -= 2; }
   const t = o.top && T(o.top), b = o.bottom && T(o.bottom);
   if (t && b) {
     const big = f => f === 'oversized' || f === 'relaxed';
