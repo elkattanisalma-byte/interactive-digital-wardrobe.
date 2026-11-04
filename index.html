@@ -459,7 +459,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:46px 16px cal
   .p30 .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:1mm;font-family:var(--serif);font-weight:600;font-size:8.5pt}
   .p30 .nm{font-size:6.5pt;color:var(--muted);margin-top:.4mm;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .box{display:inline-block;width:3.3mm;height:3.3mm;border:.3mm solid var(--ink);border-radius:.6mm;vertical-align:-.6mm;margin-right:1.8mm;flex:0 0 auto}
-  .pcols{columns:3;column-gap:7mm}
+  .pcols{columns:4;column-gap:5mm}
   .pcols section{break-inside:avoid;margin-bottom:3.2mm}
   .pp h2{font-family:var(--sans);font-size:8pt;letter-spacing:.2em;margin:0 0 1.2mm;color:var(--gold);font-weight:500}
   .pline{padding:.75mm 0;border-bottom:.2mm solid #e4d9c8;font-size:8.6pt;line-height:1.25}
@@ -978,6 +978,7 @@ const PHOTOS = {
   'beige-trench-coat': 'images/capi/beige-trench-coat.webp',
   'beige-tshirt': 'images/capi/beige-tshirt.webp',
   'beige-wide-trousers': 'images/capi/beige-wide-trousers.webp',
+  'beige-wrap-mini-skirt': 'images/capi/beige-wrap-mini-skirt.webp',
   'black-ankle-boots': 'images/capi/black-ankle-boots.webp',
   'black-baby-tee': 'images/capi/black-baby-tee.webp',
   'black-baseball-cap': 'images/capi/black-baseball-cap.webp',
@@ -1002,13 +1003,16 @@ const PHOTOS = {
   'black-satin-shirt': 'images/capi/black-satin-shirt.webp',
   'black-shoulder-bag': 'images/capi/black-shoulder-bag.webp',
   'black-skinny-jeans': 'images/capi/black-skinny-jeans.webp',
+  'black-slingbacks': 'images/capi/black-slingbacks.webp',
   'black-sunglasses': 'images/capi/black-sunglasses.webp',
   'black-tailored-shorts': 'images/capi/black-tailored-shorts.webp',
   'black-tailored-trousers': 'images/capi/black-tailored-trousers.webp',
   'black-tote': 'images/capi/black-tote.webp',
   'black-tshirt': 'images/capi/black-tshirt.webp',
   'black-turtleneck': 'images/capi/black-turtleneck.webp',
+  'black-velvet-headband': 'images/capi/black-velvet-headband.webp',
   'black-wide-leg-jumpsuit': 'images/capi/black-wide-leg-jumpsuit.webp',
+  'black-wide-leg-trousers': 'images/capi/black-wide-leg-trousers.webp',
   'black-wool-coat': 'images/capi/black-wool-coat.webp',
   'blue-pinstripe-shirt': 'images/capi/blue-pinstripe-shirt.webp',
   'blue-striped-wrap-shirt': 'images/capi/blue-striped-wrap-shirt.webp',
@@ -1020,16 +1024,23 @@ const PHOTOS = {
   'brown-corduroy-skirt': 'images/capi/brown-corduroy-skirt.webp',
   'brown-cropped-trench': 'images/capi/brown-cropped-trench.webp',
   'brown-denim-bomber': 'images/capi/brown-denim-bomber.webp',
+  'brown-denim-maxi-skirt': 'images/capi/brown-denim-maxi-skirt.webp',
+  'brown-heeled-knee-boots': 'images/capi/brown-heeled-knee-boots.webp',
+  'brown-hobo-bag': 'images/capi/brown-hobo-bag.webp',
   'brown-knee-boots': 'images/capi/brown-knee-boots.webp',
   'brown-loafers': 'images/capi/brown-loafers.webp',
   'brown-plaid-midi-skirt': 'images/capi/brown-plaid-midi-skirt.webp',
   'brown-satchel': 'images/capi/brown-satchel.webp',
   'brown-shirt-dress': 'images/capi/brown-shirt-dress.webp',
   'brown-suede-jacket': 'images/capi/brown-suede-jacket.webp',
+  'brown-top-handle-bag': 'images/capi/brown-top-handle-bag.webp',
   'brown-tweed-blazer': 'images/capi/brown-tweed-blazer.webp',
   'brown-waistcoat': 'images/capi/brown-waistcoat.webp',
+  'brown-wide-trousers': 'images/capi/brown-wide-trousers.webp',
   'burgundy-dress': 'images/capi/burgundy-dress.webp',
   'burgundy-scarf': 'images/capi/burgundy-scarf.webp',
+  'burgundy-shoulder-bag': 'images/capi/burgundy-shoulder-bag.webp',
+  'burgundy-slingbacks': 'images/capi/burgundy-slingbacks.webp',
   'burgundy-strapless-top': 'images/capi/burgundy-strapless-top.webp',
   'burgundy-sweater': 'images/capi/burgundy-sweater.webp',
   'burgundy-tshirt': 'images/capi/burgundy-tshirt.webp',
@@ -1046,19 +1057,26 @@ const PHOTOS = {
   'cream-lace-maxi-dress': 'images/capi/cream-lace-maxi-dress.webp',
   'cream-linen-trousers': 'images/capi/cream-linen-trousers.webp',
   'cream-peter-pan-blouse': 'images/capi/cream-peter-pan-blouse.webp',
+  'cream-polka-dot-skirt': 'images/capi/cream-polka-dot-skirt.webp',
   'cream-polka-halter-top': 'images/capi/cream-polka-halter-top.webp',
+  'cream-quilted-bag': 'images/capi/cream-quilted-bag.webp',
   'cream-silk-blouse': 'images/capi/cream-silk-blouse.webp',
   'cream-slingbacks': 'images/capi/cream-slingbacks.webp',
   'cream-teddy-coat': 'images/capi/cream-teddy-coat.webp',
   'cream-tweed-jacket': 'images/capi/cream-tweed-jacket.webp',
   'dark-flared-jeans': 'images/capi/dark-flared-jeans.webp',
+  'dark-wide-leg-jeans': 'images/capi/dark-wide-leg-jeans.webp',
   'denim-jacket': 'images/capi/denim-jacket.webp',
   'denim-mini-skirt': 'images/capi/denim-mini-skirt.webp',
   'denim-shirt': 'images/capi/denim-shirt.webp',
   'denim-shorts': 'images/capi/denim-shorts.webp',
+  'forest-hobo-bag': 'images/capi/forest-hobo-bag.webp',
   'forest-knit-top': 'images/capi/forest-knit-top.webp',
+  'forest-velvet-bow': 'images/capi/forest-velvet-bow.webp',
+  'gold-bangle': 'images/capi/gold-bangle.webp',
   'gold-chain-necklace': 'images/capi/gold-chain-necklace.webp',
   'gold-clutch': 'images/capi/gold-clutch.webp',
+  'gold-drop-earrings': 'images/capi/gold-drop-earrings.webp',
   'gold-hoops': 'images/capi/gold-hoops.webp',
   'gold-strappy-sandals': 'images/capi/gold-strappy-sandals.webp',
   'gold-watch': 'images/capi/gold-watch.webp',
@@ -1086,6 +1104,7 @@ const PHOTOS = {
   'navy-coat': 'images/capi/navy-coat.webp',
   'navy-denim-mini-dress': 'images/capi/navy-denim-mini-dress.webp',
   'navy-oversized-tshirt': 'images/capi/navy-oversized-tshirt.webp',
+  'navy-pinstripe-trousers': 'images/capi/navy-pinstripe-trousers.webp',
   'navy-pleated-mini-skirt': 'images/capi/navy-pleated-mini-skirt.webp',
   'navy-polka-dot-dress': 'images/capi/navy-polka-dot-dress.webp',
   'navy-sailor-trousers': 'images/capi/navy-sailor-trousers.webp',
@@ -1109,10 +1128,12 @@ const PHOTOS = {
   'pink-tshirt': 'images/capi/pink-tshirt.webp',
   'red-baby-tee': 'images/capi/red-baby-tee.webp',
   'red-gingham-dress': 'images/capi/red-gingham-dress.webp',
+  'red-heeled-mules': 'images/capi/red-heeled-mules.webp',
   'red-plaid-shirt': 'images/capi/red-plaid-shirt.webp',
   'red-satin-slip-dress': 'images/capi/red-satin-slip-dress.webp',
   'red-silk-neck-scarf': 'images/capi/red-silk-neck-scarf.webp',
   'red-strapless-top': 'images/capi/red-strapless-top.webp',
+  'red-top-handle-bag': 'images/capi/red-top-handle-bag.webp',
   'retro-running-sneakers': 'images/capi/retro-running-sneakers.webp',
   'rust-tiered-maxi-skirt': 'images/capi/rust-tiered-maxi-skirt.webp',
   'sage-midi-dress': 'images/capi/sage-midi-dress.webp',
@@ -1144,6 +1165,7 @@ const PHOTOS = {
   'white-tennis-skirt': 'images/capi/white-tennis-skirt.webp',
   'white-track-jacket': 'images/capi/white-track-jacket.webp',
   'white-tshirt': 'images/capi/white-tshirt.webp',
+  'white-wide-leg-trousers': 'images/capi/white-wide-leg-trousers.webp',
 };
 
 const $ = (s, r = document) => r.querySelector(s);
@@ -2351,8 +2373,8 @@ function buildPrint(){
   const shop = shopIds();
   const cap = capsule(5, SEASON_NOW) || {pieces:[]};
   const p1 = `<section class="pp">${head('30 Days of Outfits', `A ${SEASON_LABEL[SEASON_NOW].toLowerCase()} month of looks — tick the box when you wear it.`)}<div class="p30">${outs.map((o, i) => `<div><div class="hd"><span>Day ${i + 1}</span><span class="box"></span></div><div data-aes="${o.aes}">${flatlay(o, 'mini')}</div><div class="nm">${esc(o.name || AES[o.aes].label)}</div></div>`).join('')}</div></section>`;
-  const p2 = `<section class="pp">${head('My Closet Checklist · 1/2', 'Tick every piece you own. What’s left becomes your shopping list.')}${cl(CAT_IDS.slice(0, 8))}<p class="pcount">${CAT_IDS.slice(0, 8).reduce((n, c) => n + itemsIn(c).length, 0)} pieces on this page</p></section>`;
-  const p3 = `<section class="pp">${head('My Closet Checklist · 2/2', 'Bottoms, shoes, bags and accessories — plus your shopping list.')}${cl(CAT_IDS.slice(8))}<div class="pcols" style="margin-top:4mm"><section><h2>Shopping list</h2>${shop.map(id => `<div class="pline"><span class="box"></span>${esc(T(id).name)}</div>`).join('')}${SUGGESTIONS.map(s => `<div class="pline"><span class="box"></span>${esc(s.name)}</div>`).join('')}${'<div class="pline"><span class="box"></span>&nbsp;</div>'.repeat(Math.max(2, 6 - shop.length))}</section></div></section>`;
+  const p2 = `<section class="pp">${head('My Closet Checklist · 1/2', 'Tick every piece you own. What’s left becomes your shopping list.')}${cl(CAT_IDS.slice(0, 9))}<p class="pcount">${CAT_IDS.slice(0, 9).reduce((n, c) => n + itemsIn(c).length, 0)} pieces on this page</p></section>`;
+  const p3 = `<section class="pp">${head('My Closet Checklist · 2/2', 'Bottoms, shoes, bags and accessories — plus your shopping list.')}${cl(CAT_IDS.slice(9))}<div class="pcols" style="margin-top:4mm"><section><h2>Shopping list</h2>${shop.map(id => `<div class="pline"><span class="box"></span>${esc(T(id).name)}</div>`).join('')}${SUGGESTIONS.map(s => `<div class="pline"><span class="box"></span>${esc(s.name)}</div>`).join('')}${'<div class="pline"><span class="box"></span>&nbsp;</div>'.repeat(Math.max(2, 6 - shop.length))}</section></div></section>`;
   const p4 = `<section class="pp">${head('7-Day Challenge', '7 outfits, zero new clothes. Colour in a circle for every day you complete.')}<div class="circles">${DAYS.map(d => `<div><i></i>${d}</div>`).join('')}</div><h1 style="font-size:19pt">Packing List</h1><p class="sub">Destination: ____________________ &nbsp; Days: ______</p><div class="pack">${[['Tops','top'],['Bottoms','bottom'],['Layers','layer'],['Shoes','shoes'],['Bags','bag']].map(([n, t]) => `<section><h2>${n}</h2>${cap.pieces.filter(id => T(id).slot === t).map(id => `<div class="pline"><span class="box"></span>${esc(T(id).name)}</div>`).join('')}${'<div class="pline"><span class="box"></span></div>'.repeat(3)}</section>`).join('')}<section><h2>Extras</h2>${['Sleepwear','Underwear & socks','Toiletries','Chargers','Jewellery'].map(x => `<div class="pline"><span class="box"></span>${x}</div>`).join('')}</section></div></section>`;
   return p1 + p2 + p3 + p4;
 }

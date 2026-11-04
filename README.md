@@ -29,6 +29,10 @@ Open `index.html` in Safari, Chrome, Edge or Firefox, on a phone or a computer. 
 
 The same photo is used everywhere: wardrobe, item panel, outfit flat-lays (composed live on the aesthetic's surface), outfit maker and printables. If a file is missing, the drawing is shown instead.
 
+## Styling rules
+
+The owner's styling rules live in `.claude/skills/stylist/SKILL.md` (colour families, repeated accent, matching shoes and bag, one leather tone, gold only, one pattern, silhouettes). The outfit generator follows them and `node tools/check-data.mjs` rejects a curated look that breaks them.
+
 ## Edit the catalog
 
 Items and curated outfits live in the JSON block `<script type="application/json" id="idw-data">`, one item per line. A new category, colour or aesthetic is added in `schema`. Run `node tools/check-data.mjs` after every change.
