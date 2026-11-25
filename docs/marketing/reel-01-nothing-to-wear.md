@@ -1,6 +1,6 @@
 # Reel 01 — "Nothing to wear"
 
-**File:** `docs/marketing/reel-01-nothing-to-wear.mp4` (1080×1920, 9:16, ~27 s, voice + music, burned-in captions)
+**File:** `docs/marketing/reel-01-nothing-to-wear.mp4` (1080×1920, 9:16, 29 s, **voice only, no music**: you add the music in the app; captions already burned in)
 **Platforms:** Instagram Reels, TikTok, Facebook Reels, YouTube Shorts. The same file can be used for Meta ads.
 
 ## Story (beat by beat)
@@ -10,9 +10,9 @@
 | 0–4.5 s | She's surrounded by clothes, frustrated, and throws the sweaters | "My closet is *full*…" → "…and *nothing* to wear 😩" | "My closet is literally full… and I have NOTHING to wear." |
 | 4.5–8 s | She sits on the bed, phone in hand, and gets an idea | "wait… 🤯" | "Wait. I literally have a digital wardrobe." |
 | 8–17 s | **The real ebook**: the wardrobe opens (curtain, lights), she taps the brown trench, the Old Money look appears | "Tap *one* piece → full outfit ✨" | "I tap one piece, and it styles the whole outfit for me." |
-| 17–20 s | She takes the trench out of her real wardrobe | — | (music) |
+| 17–20 s | She takes the trench out of her real wardrobe | — | — |
 | 20–24.5 s | In front of the mirror, dressed in **exactly the look shown in the ebook** | "10 seconds. *Done.* 🤍" | "Ten seconds. Done. Never saying 'nothing to wear' again." |
-| 24.5–27 s | Final card: The Interactive Digital Wardrobe · 306 pieces · 103 looks · 14 aesthetics · 15 tools | "Link in bio" | (music) |
+| 26.5–29 s | Final card: The Interactive Digital Wardrobe · 306 pieces · 103 looks · 14 aesthetics · 15 tools | "Link in bio" | — |
 
 Why it works:
 - **Hook in the first second.** Everyone has said "nothing to wear". The text reads with the sound off too.
@@ -46,7 +46,7 @@ Use the moment from the mirror scene when she's dressed and smiling, with the te
 
 ## Before publishing
 1. **AI label:** the girl and the voice are made with AI. On Instagram, turn on the "AI info" label in the advanced settings. On TikTok, turn on "AI-generated content". That's required, and it also protects you.
-2. **Music:** the video already has an original instrumental track. On Instagram you can also add a trending track from the app at low volume (keep the voice audible).
+2. **Music:** the video has her voice only. Add the music in Instagram/TikTok (a trending track, at low volume under the voice). For **ads** use only tracks from the libraries licensed for commercial use (Meta Sound Collection, TikTok Commercial Music Library): trending songs aren't allowed in ads.
 3. **Trial Reel (Instagram):** if you have the option, publish it first as a "Trial Reel". It's shown only to people who don't follow you, a free test that doesn't touch your profile.
 4. **Best times:** for a US/UK audience, 7–9 pm Italian time (afternoon in the US) or 1–3 pm Italian time (US morning).
 5. **The first hour matters most:** reply to every comment in the first 60 minutes.
