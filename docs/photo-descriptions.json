@@ -182,7 +182,6 @@
  "cream-sweetheart-top": "A cream sweetheart top — fitted fine-ribbed knit top with a sweetheart neckline and short cap sleeves, soft cream",
  "white-sweetheart-top": "A white sweetheart top — fitted stretch-jersey top with a gathered sweetheart neckline and short cap sleeves, bright white",
  "butter-one-shoulder-top": "A butter yellow one-shoulder top — fitted ruched jersey top with one wide shoulder strap, asymmetric neckline, soft butter yellow",
- "butter-button-top": "A butter yellow button top — fitted fine-ribbed knit top with short sleeves, a round neck and a row of small buttons down the front, pale butter yellow",
  "lilac-lace-up-top": "A lilac lace-up top — sleeveless fitted V-neck waistcoat-style top with small buttons down the front and lace-up ties on both sides of the waist, soft lilac",
  "butter-hoodie": "A butter yellow hoodie — oversized heavyweight cotton hoodie with a kangaroo pocket and ribbed cuffs, washed butter yellow, plain with no print",
  "white-off-shoulder-knit": "A white off-shoulder knit — fitted ribbed knit top with a wide folded off-the-shoulder neckline and long sleeves, soft white",
@@ -281,5 +280,13 @@
  "gold-flower-earrings": "A pair of gold flower earrings — sculpted polished gold flower stud earrings",
  "rust-silk-scarf": "A rust silk scarf — small square silk neck scarf, burnt orange rust",
  "silver-bracelet": "A silver bracelet — fine silver chain bracelet with small star and heart charms",
- "burgundy-striped-knit": "A burgundy striped knit — fitted fine-knit top with a round neck and long flared bell sleeves, horizontal stripes in burgundy, cream and navy"
+ "burgundy-striped-knit": "A burgundy striped knit — fitted fine-knit top with a round neck and long flared bell sleeves, horizontal stripes in burgundy, cream and navy",
+ "sage-button-top": "A sage green button top — fitted fine-ribbed knit top with short sleeves, a round neck and a row of small buttons down the front, pale sage green",
+ "white-hoodie": "A white hoodie — recoloured from the grey hoodie photo.",
+ "black-hoodie": "A black hoodie — recoloured from the grey hoodie photo.",
+ "navy-hoodie": "A navy hoodie — recoloured from the grey hoodie photo.",
+ "beige-hoodie": "A beige hoodie — recoloured from the grey hoodie photo.",
+ "pink-hoodie": "A pink hoodie — recoloured from the grey hoodie photo.",
+ "sage-hoodie": "A sage hoodie — recoloured from the grey hoodie photo.",
+ "burgundy-hoodie": "A burgundy hoodie — recoloured from the grey hoodie photo."
 }
