@@ -15,7 +15,9 @@
   --gold:#a8823f;--gold2:#d8b673;--berry:#a3354a;--ok:#3f6b2f;
   --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
   --sans:'Jost',system-ui,-apple-system,'Segoe UI',sans-serif;
-  --wood:repeating-linear-gradient(90deg,rgba(150,110,60,.07) 0 2px,transparent 2px 9px),repeating-linear-gradient(90deg,rgba(255,255,255,.09) 0 1px,transparent 1px 23px),linear-gradient(90deg,#e7d0aa,#dcbf92 50%,#e5cda6);
+  /* cream lacquer with two soft bands of afternoon light across the doors */
+  --lacquer:linear-gradient(118deg,rgba(255,250,238,0) 18%,rgba(255,247,228,.75) 27%,rgba(255,250,238,0) 36%,rgba(255,250,238,0) 52%,rgba(255,247,228,.55) 60%,rgba(255,250,238,0) 69%),linear-gradient(#f8f2e9,#efe5d6);
+  --wood:linear-gradient(#f8f2e9,#ede2d1);
   /* default (unthemed) card tokens */
   --t-bg:var(--card);--t-ink:var(--ink);--t-accent:var(--gold);--t-on-accent:#fff;--t-font:var(--serif);--t-weight:500;--t-style:normal;--t-case:none;--t-track:.02em;
   --t-surface:url(images/surfaces/old-money.webp) center/cover,#e6e1d2;--t-frame:inset 0 0 0 1px rgba(110,80,45,.08);--t-frame-radius:8px;
@@ -54,10 +56,12 @@ a{color:inherit}
 /* ---------- wardrobe ---------- */
 .stage{overflow:hidden;padding:18px 0 8px}
 .wardrobe{position:relative;max-width:960px;margin:0 auto;width:calc(100% - 44px)}
-.crown{position:relative;height:56px;margin:0 -12px;background:linear-gradient(#f1dfc0,#d9bb8f);border-radius:8px 8px 2px 2px;box-shadow:inset 0 -4px 0 rgba(0,0,0,.07),0 8px 16px -10px rgba(80,55,30,.55);display:grid;place-items:center}
-.crown span{font-family:var(--serif);font-weight:600;letter-spacing:.42em;padding-left:.42em;font-size:clamp(12px,2.8vw,17px);color:#7b5a33;text-shadow:0 1px 0 rgba(255,255,255,.6);text-transform:uppercase}
-.cabinet{position:relative;padding:10px;background:linear-gradient(90deg,#c7a272,#e3c99e 5%,#e3c99e 95%,#c7a272);box-shadow:0 30px 50px -30px rgba(80,55,30,.7)}
-.interior{position:relative;border-radius:3px;background:linear-gradient(#efe3cf,#e5d4ba);box-shadow:inset 0 12px 26px -10px rgba(60,40,20,.5),inset 0 0 0 1px rgba(90,60,30,.18);overflow:hidden;min-height:540px}
+/* cream lacquered wardrobe: stepped cornice, arched raised panels, long gold bar handles */
+.crown{position:relative;height:50px;margin:0 -14px;border-radius:3px 3px 0 0;background:linear-gradient(#fffcf6 0 5px,#e4d5bf 5px 6px,#f8f1e6 6px 13px,#e0cfb6 13px 14px,#f5ede1 14px 100%);box-shadow:inset 0 0 0 1px rgba(150,115,75,.14),0 12px 16px -12px rgba(110,80,45,.5);display:grid;place-items:center;padding-top:10px}
+.crown::after{content:'';position:absolute;left:8px;right:8px;bottom:-9px;height:9px;background:linear-gradient(#e7d9c5,#f4ebde);clip-path:polygon(0 0,100% 0,calc(100% - 6px) 100%,6px 100%);z-index:1}
+.crown span{font-family:var(--serif);font-weight:600;letter-spacing:.42em;padding-left:.42em;font-size:clamp(11px,2.5vw,15px);color:#a8823f;text-shadow:0 1px 0 rgba(255,255,255,.8);text-transform:uppercase}
+.cabinet{position:relative;padding:10px;background:linear-gradient(90deg,#e3d3bc,#f6eee3 3.5%,#f1e7d9 50%,#f6eee3 96.5%,#ddcbb2);box-shadow:0 30px 50px -30px rgba(110,80,45,.55),inset 0 0 0 1px rgba(150,115,75,.14)}
+.interior{position:relative;border-radius:3px;background:linear-gradient(#f2e9dc,#e8dbc7);box-shadow:inset 0 12px 26px -10px rgba(60,40,20,.5),inset 0 0 0 1px rgba(90,60,30,.18);overflow:hidden;min-height:540px}
 .interior::before{content:'';position:absolute;inset:0;background:radial-gradient(80% 45% at 50% 0,rgba(255,226,170,.55),rgba(255,226,170,0));opacity:0;transition:opacity 1.2s ease .4s;pointer-events:none}
 .interior::after{content:'';position:absolute;inset:0;background:#1d150e;opacity:.93;pointer-events:none;transition:opacity 1.1s ease .25s;z-index:8}
 .wardrobe.open .interior::before{opacity:1}
@@ -66,21 +70,26 @@ a{color:inherit}
 .wardrobe.open .led{opacity:1;box-shadow:0 4px 18px 6px rgba(255,214,140,.65),0 24px 70px 26px rgba(255,220,160,.28)}
 .in{position:relative;z-index:1;padding:16px 0 14px}
 .doors{position:absolute;inset:10px;perspective:2200px;z-index:12}
-.door{position:absolute;top:0;bottom:0;width:50%;background:var(--wood);box-shadow:inset 0 0 0 1px rgba(110,80,45,.28);transition:transform 1.15s cubic-bezier(.65,.02,.25,1),box-shadow 1.15s;-webkit-backface-visibility:visible;backface-visibility:visible}
-.door.l{left:0;transform-origin:left center;border-right:1px solid rgba(110,80,45,.35)}
-.door.r{right:0;transform-origin:right center}
-.door::before{content:'';position:absolute;inset:6% 13%;border:1px solid rgba(120,85,45,.3);border-radius:2px;box-shadow:inset 0 0 0 7px rgba(255,255,255,.07),0 1px 0 rgba(255,255,255,.45)}
-.door::after{content:'';position:absolute;top:44%;width:7px;height:12%;border-radius:4px;background:linear-gradient(90deg,#9c7330,#ecd292,#a77d39);box-shadow:0 2px 4px rgba(60,40,10,.4)}
-.door.l::after{right:8%}.door.r::after{left:8%}
-.wardrobe.open .door.l{transform:rotateY(-106deg);box-shadow:inset 0 0 0 1px rgba(110,80,45,.28),inset -40px 0 60px rgba(60,40,20,.25)}
-.wardrobe.open .door.r{transform:rotateY(106deg);box-shadow:inset 0 0 0 1px rgba(110,80,45,.28),inset 40px 0 60px rgba(60,40,20,.25)}
+.door{position:absolute;top:0;bottom:0;width:50%;background:var(--lacquer);background-size:200% 100%;box-shadow:inset 0 0 0 1px rgba(150,115,75,.24),inset 0 0 22px rgba(170,135,95,.12);transition:transform 1.15s cubic-bezier(.65,.02,.25,1),box-shadow 1.15s;-webkit-backface-visibility:visible;backface-visibility:visible}
+.door.l{left:0;transform-origin:left center;background-position:0 0;border-right:1px solid rgba(150,115,75,.3)}
+.door.r{right:0;transform-origin:right center;background-position:100% 0}
+.panel,.panel-in{position:absolute;display:flex;flex-direction:column;pointer-events:none}
+.panel{inset:5% 13% 4.5%;filter:drop-shadow(1px 1.5px 0 rgba(255,255,255,.9))}
+.panel-in{inset:9px}
+.arch{display:block;flex:none;width:calc(100% - 1.4px);margin-left:.7px;height:auto;aspect-ratio:100/24;overflow:visible}
+.arch path{fill:none;stroke:rgba(150,115,75,.55);stroke-width:1.4}
+.panel::after,.panel-in::after{content:'';flex:1;margin-top:-1px;border:1.4px solid rgba(150,115,75,.55);border-top:0}
+.handle{position:absolute;top:41%;height:19%;width:6px;border-radius:3px;background:linear-gradient(90deg,#8a6428,#e2c27c 30%,#fff1c8 48%,#c99a4b 72%,#80591f);box-shadow:3px 5px 7px -2px rgba(90,60,25,.4)}
+.handle::before,.handle::after{content:'';position:absolute;left:-2px;width:10px;height:6px;border-radius:2px;background:linear-gradient(90deg,#7d5a24,#e0c07a,#7d5a24)}
+.handle::before{top:6%}.handle::after{bottom:6%}
+.door.l .handle{right:6.5%}.door.r .handle{left:6.5%}
+.wardrobe.open .door.l{transform:rotateY(-106deg);box-shadow:inset 0 0 0 1px rgba(150,115,75,.24),inset -40px 0 60px rgba(110,80,45,.2)}
+.wardrobe.open .door.r{transform:rotateY(106deg);box-shadow:inset 0 0 0 1px rgba(150,115,75,.24),inset 40px 0 60px rgba(110,80,45,.2)}
 .wardrobe.open .doors{pointer-events:none}
 .door-hint{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max-content;max-width:78%;text-align:center;font-family:var(--serif);font-style:italic;font-size:clamp(17px,3.6vw,22px);color:var(--ink);background:rgba(251,247,240,.92);padding:10px 20px;border-radius:999px;box-shadow:0 10px 24px -14px rgba(60,40,20,.7);pointer-events:none;transition:opacity .4s;animation:breathe 2.6s ease-in-out infinite}
 @keyframes breathe{50%{transform:translate(-50%,-50%) scale(1.04)}}
 .wardrobe.open .door-hint{opacity:0;animation:none}
-.plinth{position:relative;height:24px;margin:0 -6px;background:linear-gradient(#dcbf93,#bf9a68);border-radius:0 0 4px 4px;box-shadow:0 10px 20px -12px rgba(60,40,20,.6)}
-.plinth::before,.plinth::after{content:'';position:absolute;bottom:-10px;width:26px;height:10px;background:#a9845a;border-radius:0 0 4px 4px}
-.plinth::before{left:8%}.plinth::after{right:8%}
+.plinth{position:relative;height:28px;margin:0 -4px;background:linear-gradient(#fbf6ee 0 4px,#e1d0b8 4px 5px,#f3eadd 5px 9px,#e6d7c2 9px 10px,#f1e7d9 10px 100%);box-shadow:inset 0 0 0 1px rgba(150,115,75,.14),inset 0 -3px 0 rgba(150,115,75,.12),0 14px 20px -14px rgba(110,80,45,.5)}
 .cta{display:block;margin:24px auto 0;padding:15px 32px;border-radius:999px;background:var(--ink);color:#fbf4e8;font-size:13px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;box-shadow:0 12px 26px -14px rgba(38,34,30,.9);transition:transform .2s}
 .cta:active{transform:scale(.97)}
 
@@ -120,7 +129,7 @@ a{color:inherit}
 .arrow svg{width:14px;height:14px;fill:none;stroke:var(--ink);stroke-width:2}
 .arrow.prev{left:4px}.arrow.next{right:4px}
 .arrow[disabled]{opacity:0;pointer-events:none}
-.shelf-line{height:12px;margin:8px 0 6px;background:linear-gradient(#e9d2aa,#c9a676);box-shadow:0 6px 8px -5px rgba(60,40,20,.45)}
+.shelf-line{height:12px;margin:8px 0 6px;background:linear-gradient(#fbf6ee,#e6d7c1);box-shadow:inset 0 -1px 0 rgba(150,115,75,.25),0 6px 8px -5px rgba(110,80,45,.4)}
 .label{display:block;text-align:center;font-family:var(--serif);font-weight:600;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#8a6a43;margin:6px 0 0}
 .shelf-track{display:flex;gap:6px;overflow-x:auto;padding:6px 14px 0;scrollbar-width:none;scroll-snap-type:x proximity}
 .shelf-track::-webkit-scrollbar{display:none}
@@ -526,8 +535,8 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:46px 16px cal
           </div>
         </div>
         <div class="doors" id="doors">
-          <button class="door l" aria-label="Open the wardrobe"></button>
-          <button class="door r" aria-label="Open the wardrobe"></button>
+          <button class="door l" aria-label="Open the wardrobe"><span class="panel"><svg class="arch" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24V15.6Q0 12.6 3.6 12.6Q8 12.6 11 10Q29 1 50 1Q71 1 89 10Q92 12.6 96.4 12.6Q100 12.6 100 15.6V24" vector-effect="non-scaling-stroke"/></svg><span class="panel-in"><svg class="arch" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24V15.6Q0 12.6 3.6 12.6Q8 12.6 11 10Q29 1 50 1Q71 1 89 10Q92 12.6 96.4 12.6Q100 12.6 100 15.6V24" vector-effect="non-scaling-stroke"/></svg></span></span><i class="handle"></i></button>
+          <button class="door r" aria-label="Open the wardrobe"><span class="panel"><svg class="arch" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24V15.6Q0 12.6 3.6 12.6Q8 12.6 11 10Q29 1 50 1Q71 1 89 10Q92 12.6 96.4 12.6Q100 12.6 100 15.6V24" vector-effect="non-scaling-stroke"/></svg><span class="panel-in"><svg class="arch" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24V15.6Q0 12.6 3.6 12.6Q8 12.6 11 10Q29 1 50 1Q71 1 89 10Q92 12.6 96.4 12.6Q100 12.6 100 15.6V24" vector-effect="non-scaling-stroke"/></svg></span></span><i class="handle"></i></button>
           <div class="door-hint">Tap the doors to open your wardrobe</div>
         </div>
       </div>
@@ -1730,7 +1739,9 @@ const DRAW = {};
 const drawSpec = sp => (DRAW[sp.id] || (DRAW[sp.id] = ART[sp.art.kind](sp))).replace(/§/g, ++UID);
 function art(id){ if (PHOTO_SRC[id] && !PHOTO_BAD.has(id)) return `<img src="${esc(PHOTO_SRC[id])}" alt="" decoding="async" data-photo="${esc(id)}">`; return drawSpec(T(id)); }
 // a missing photo file swaps itself for the drawing, wherever it is shown
-document.addEventListener('error', e => { const im = e.target; if (!(im instanceof HTMLImageElement) || !im.dataset.photo || !T(im.dataset.photo)) return; PHOTO_BAD.add(im.dataset.photo); const t = document.createElement('template'); t.innerHTML = drawSpec(T(im.dataset.photo)); im.replaceWith(t.content); }, true);
+document.addEventListener('error', e => { const im = e.target; if (!(im instanceof HTMLImageElement) || !im.dataset.photo || !T(im.dataset.photo)) return;
+  const n = +(im.dataset.retry || 0); if (n < 3) { im.dataset.retry = n + 1; setTimeout(() => { im.src = PHOTO_SRC[im.dataset.photo] + (PHOTO_SRC[im.dataset.photo].includes('?') ? '&' : '?') + 'r=' + (n + 1); }, 600 * (n + 1)); return; }   // a busy connection: try again before giving up
+  PHOTO_BAD.add(im.dataset.photo); const t = document.createElement('template'); t.innerHTML = drawSpec(T(im.dataset.photo)); im.replaceWith(t.content); }, true);
 const artTag = (id, cls = 'art') => `<span class="${cls}">${art(id)}</span>`;
 const HANGER_TOP = `<svg class="hanger" viewBox="0 0 120 46" aria-hidden="true"><path d="M60 19V13c0-4 2.5-6.5 6.5-6.5S73 9 73 12.5" fill="none" stroke="#8f6e3c" stroke-width="2.6" stroke-linecap="round"/><path d="M60 19 12 39Q6 42 11 44H109Q114 42 108 39Z" fill="none" stroke="#b08a57" stroke-width="4.2" stroke-linejoin="round"/></svg>`;
 const HANGER_CLIP = `<svg class="hanger" viewBox="0 0 120 44" aria-hidden="true"><path d="M60 22V13c0-4 2.5-6.5 6.5-6.5S73 9 73 12.5" fill="none" stroke="#8f6e3c" stroke-width="2.6" stroke-linecap="round"/><path d="M14 23H106" stroke="#b08a57" stroke-width="4.5" stroke-linecap="round"/><rect x="20" y="24" width="10" height="17" rx="2" fill="#9c784a"/><rect x="90" y="24" width="10" height="17" rx="2" fill="#9c784a"/></svg>`;
