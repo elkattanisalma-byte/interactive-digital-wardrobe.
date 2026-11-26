@@ -9,7 +9,7 @@
 | 7.3–10.9 s | Phone in hand, she gets the idea | "Wait. I literally have a digital wardrobe." | same line (lip-synced) |
 | 10.9–17.4 s | **The real ebook**: the wardrobe opens → Occasions → Date → More ideas → **"Polka & Cherry"** → heart | "Date night → *one tap* 💗" | — |
 | 17.4–22.4 s | Facing the camera, wearing **exactly** Polka & Cherry | "Want one too? Comment **"WARDROBE"** and I'll send it to you!" | same line (lip-synced) |
-| 22.4–25 s | Final card: Comment "WARDROBE" · Link in bio | | — |
+| 22.4–25 s | Final card: Comment "WARDROBE" and I'll send you The Interactive Digital Wardrobe (no "link in bio") | | — |
 
 **Outfit identical to the ebook's "Polka & Cherry" look:** red strapless top, cream polka-dot midi skirt, red heeled mules, red top-handle bag, gold watch, gold drop earrings and gold bangle.
 
