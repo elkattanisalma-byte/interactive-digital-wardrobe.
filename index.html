@@ -1783,10 +1783,10 @@ const PHOTO_BAD = new Set();   // photos that failed to load: their drawing is s
 let UID = 0;
 const DRAW = {};
 const drawSpec = sp => (DRAW[sp.id] || (DRAW[sp.id] = ART[sp.art.kind](sp))).replace(/§/g, ++UID);
-function art(id){ if (PHOTO_SRC[id] && !PHOTO_BAD.has(id)) return `<img src="${esc(PHOTO_SRC[id])}" alt="" decoding="async" data-photo="${esc(id)}">`; return drawSpec(T(id)); }
+function art(id){ if (PHOTO_SRC[id] && !PHOTO_BAD.has(id)) return `<img src="${esc(PHOTO_SRC[id])}" alt="" loading="lazy" decoding="async" data-photo="${esc(id)}">`; return drawSpec(T(id)); }
 // a missing photo file swaps itself for the drawing, wherever it is shown
 document.addEventListener('error', e => { const im = e.target; if (!(im instanceof HTMLImageElement) || !im.dataset.photo || !T(im.dataset.photo)) return;
-  const n = +(im.dataset.retry || 0); if (n < 3) { im.dataset.retry = n + 1; setTimeout(() => { im.src = PHOTO_SRC[im.dataset.photo] + (PHOTO_SRC[im.dataset.photo].includes('?') ? '&' : '?') + 'r=' + (n + 1); }, 600 * (n + 1)); return; }   // a busy connection: try again before giving up
+  const n = +(im.dataset.retry || 0); if (n < 4) { im.dataset.retry = n + 1; const src = PHOTO_SRC[im.dataset.photo]; setTimeout(() => { im.removeAttribute('src'); im.src = src; }, 800 * (n + 1)); return; }   // a busy connection: try again before giving up
   PHOTO_BAD.add(im.dataset.photo); const t = document.createElement('template'); t.innerHTML = drawSpec(T(im.dataset.photo)); im.replaceWith(t.content); }, true);
 const artTag = (id, cls = 'art') => `<span class="${cls}">${art(id)}</span>`;
 const HANGER_TOP = `<svg class="hanger" viewBox="0 0 120 46" aria-hidden="true"><path d="M60 19V13c0-4 2.5-6.5 6.5-6.5S73 9 73 12.5" fill="none" stroke="#8f6e3c" stroke-width="2.6" stroke-linecap="round"/><path d="M60 19 12 39Q6 42 11 44H109Q114 42 108 39Z" fill="none" stroke="#b08a57" stroke-width="4.2" stroke-linejoin="round"/></svg>`;
@@ -2666,7 +2666,7 @@ const RENDER = {
   },
   print(b){
     b.innerHTML = `<p class="lead">Four A4 pages to print and keep next to your wardrobe.</p><ol class="plist"><li><b>30 days of outfits</b> — a grid of 30 looks with a box to tick for each day.</li><li><b>My closet checklist, part 1</b> — tops, shirts, knitwear, blazers, jackets, coats, dresses and jumpsuits.</li><li><b>My closet checklist, part 2</b> — jeans, trousers, skirts, shorts, shoes, bags, accessories and your shopping list.</li><li><b>7-day challenge</b> — circles to colour in, plus a packing list for trips.</li></ol><button class="btn" data-print>Download PDF</button><p class="note">In the print window choose <b>Save as PDF</b> as the printer. On iPhone or iPad, tap the <b>Share</b> icon in the print preview, then <b>Save to Files</b>.</p>`;
-    b.onclick = e => { if (e.target.closest('[data-print]')) { $('#print').innerHTML = buildPrint(); setTimeout(() => window.print(), 60); } };
+    b.onclick = e => { if (e.target.closest('[data-print]')) { $('#print').innerHTML = buildPrint().replace(/ loading="lazy"/g, ''); setTimeout(() => window.print(), 600); } };   // printed pages load every photo at once
   },
 };
 function tabbedOutfits(b, DEF, field){
