@@ -2,6 +2,8 @@
 
 **Name:** The Interactive Digital Wardrobe
 
+**Live page:** https://salmaenterprise.gumroad.com/l/digital-wardrobe
+
 **Price:** $9.99 (launch price; raise it once it sells)
 
 **Product file:** `The-Interactive-Digital-Wardrobe-Guide.pdf`, which holds the link to the ebook.
