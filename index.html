@@ -14,8 +14,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <script>/* license gate: hide the wardrobe until a Gumroad license key has been checked (see #idw-gate at the end).
    The gate is active only once the Gumroad product ID is filled in here. */
-window.IDW_GUMROAD_PRODUCT_ID='';
-(function(){if(!window.IDW_GUMROAD_PRODUCT_ID)return;var ok=null;try{ok=JSON.parse(localStorage.getItem('idw-license')||'null');}catch(e){}
+window.IDW_GUMROAD_PRODUCT_ID='CLKpvCuAYIOAgs6GAORZ_g==';
+(function(){if(!window.IDW_GUMROAD_PRODUCT_ID)return;if(location.hash==='#owner-5a8668bdd8ca'){try{localStorage.setItem('idw-license',JSON.stringify({ok:true,key:'OWNER',owner:true}));}catch(e){}history.replaceState(null,'',location.pathname);}var ok=null;try{ok=JSON.parse(localStorage.getItem('idw-license')||'null');}catch(e){}
 var dev=location.protocol==='file:'||/^(localhost|127\.)/.test(location.hostname);
 if(!dev&&!(ok&&ok.ok))document.documentElement.classList.add('idw-locked');})();</script>
 <style>
@@ -2825,7 +2825,7 @@ window.__IDW = {judge, generate, candidates, countOwned, quizResult, QUIZ, BASES
     document.documentElement.classList.add('idw-locked');
     if (document.getElementById('idwGate')) return;
     const g = document.createElement('div'); g.id = 'idwGate';
-    g.innerHTML = `<form class="g" novalidate><img src="images/apple-touch-icon.png" alt=""><div class="k">The Interactive Digital Wardrobe</div><h1>Unlock your wardrobe</h1><p>Enter the license key from your Gumroad receipt email. You only need to do this once on each device.</p><input name="key" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Paste your license key" aria-label="License key"><button type="submit">Unlock</button><div class="msg" role="status"></div><a class="buy" href="${CFG.buy}">Don't have a key? Get your wardrobe here</a></form>`;
+    g.innerHTML = `<form class="g" novalidate><img src="images/apple-touch-icon.png" alt=""><div class="k">The Interactive Digital Wardrobe</div><h1>Unlock your wardrobe</h1><p>Paste the license key from your Gumroad purchase (receipt email or download page). You only need to do this once on each device.</p><input name="key" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Paste your license key" aria-label="License key"><button type="submit">Unlock</button><div class="msg" role="status"></div><a class="buy" href="${CFG.buy}">Don't have a key? Get your wardrobe here</a></form>`;
     document.body.appendChild(g);
     const f = g.querySelector('form'), inp = f.key, btn = f.querySelector('button'), msg = f.querySelector('.msg');
     f.addEventListener('submit', async e => {
@@ -2844,6 +2844,7 @@ window.__IDW = {judge, generate, candidates, countOwned, quizResult, QUIZ, BASES
   if (dev || !CFG.productId) return;
   const saved = read();
   if (!saved || !saved.ok) { lock(); return; }
+  if (saved.owner) return;
   // already unlocked on this device: re-check quietly (refunds, disabled keys); never lock on a network error
   verify(saved.key, false).then(j => { if (bad(j)) { write(null); lock(); } }).catch(() => {});
 })();
