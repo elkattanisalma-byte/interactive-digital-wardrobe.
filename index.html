@@ -2742,7 +2742,7 @@ function capsule(days, season){
 function renderStrip(){
   const links = AES_IDS.map(a => `<a class="aes-link" href="#style-${a}" data-aes-link="${a}" style="--d:${aesDot(a)}"><i></i>${esc(AES[a].label)}</a>`).join('');
   $('#aesStrip').innerHTML = links; $('#libNav').innerHTML = links;
-  $('#stats').innerHTML = `<span><b>${ON().length}</b>pieces</span><span><b>${CURATED.length}</b>curated looks</span><span><b>${AES_IDS.length}</b>styles</span><span><b>15</b>tools</span>`;
+  $('#stats').innerHTML = `<span><b>${ITEMS.length}</b>pieces</span><span><b>${CURATED.length}</b>curated looks</span><span><b>${AES_IDS.length}</b>styles</span><span><b>15</b>tools</span>`;
 }
 function renderBands(){
   $('#libBands').innerHTML = AES_IDS.map((a, i) => { const A = AES[a];
