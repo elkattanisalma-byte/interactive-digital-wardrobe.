@@ -2,7 +2,7 @@
 
 **Name:** The Interactive Digital Wardrobe
 
-**Price:** $14.99 (launch price: $9.99)
+**Price:** $9.99 (launch price; raise it once it sells)
 
 **Product file:** `The-Interactive-Digital-Wardrobe-Guide.pdf`, which holds the link to the ebook.
 **Cover:** `cover.png`
