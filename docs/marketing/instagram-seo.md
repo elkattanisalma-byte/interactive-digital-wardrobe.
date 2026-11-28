@@ -11,10 +11,11 @@ Search volumes are NOT known here: before posting, search each phrase in Instagr
 - **Category:** Digital creator
 - **Bio:**
 ```
-Your virtual stylist in your pocket ✨
-306 pieces · 103 looks · 14 styles
-Get your digital wardrobe 👇
+Your virtual stylist & digital closet ✨
+Capsule wardrobe · outfit planner · packing lists
+306 pieces · 103 looks · 14 styles 👇
 ```
+(Keywords chosen from how similar wardrobe apps describe themselves: "virtual stylist", "digital closet", "capsule wardrobe", "outfit planner". We do not say "AI": the looks are hand-curated.)
 - **Link:** https://salmaenterprise.gumroad.com/l/digital-wardrobe
 
 ## Captions (first sentence = what someone would search; 3–5 hashtags at the end)
